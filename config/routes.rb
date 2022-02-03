@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
 
   devise_for :users
-    resources :users do
-      #get "search", to: "users#search"
+    resources :users, only: [:index,:show, :edit, :update] do
+      get "search", to: "users#search"
       resource :relationships, only: [:create, :destroy]
       member do
         get :following, :followers
