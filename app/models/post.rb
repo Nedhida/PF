@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   has_many :comments, dependent: :destroy
 
+  attachment :image, dependent: :destroy
+
   #userのfavoriteの有無
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

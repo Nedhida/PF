@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :favorite_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  #attachment :profile_image, dependent: :destroy
+  attachment :profile_image
 
   has_many :relationships
   #active_relationshipsという架空のクラス（モデル）を作成、relationshipsのfollower_idを参考にactiverelationshipsにアクセスする

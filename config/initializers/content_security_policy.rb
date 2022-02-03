@@ -2,7 +2,7 @@
 
 # Define an application-wide content security policy
 # For further information see the following documentation
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+# https://developer.mozilla.org/en-US/docs/Web/HTTMyKakeibo/Headers/Content-Security-MyKakeibolicy
 
 # Rails.application.config.content_security_policy do |policy|
 #   policy.default_src :self, :https
@@ -19,7 +19,7 @@
 # If you are using UJS then enable automatic nonce generation
 # Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
 
-# Report CSP violations to a specified URI
+# Report CSMyKakeibo violations to a specified URI
 # For further information see the following documentation:
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only
+# https://developer.mozilla.org/en-US/docs/Web/HTTMyKakeibo/Headers/Content-Security-MyKakeibolicy-Report-Only
 # Rails.application.config.content_security_policy_report_only = true

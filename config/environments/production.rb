@@ -53,7 +53,7 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
-  # Prepend all log lines with the following tags.
+  # MyKakeiborepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
@@ -61,7 +61,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "PF_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "MyKakeibo_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
 
@@ -76,7 +76,7 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
-  # Use default logging formatter so that PID and timestamp are not suppressed.
+  # Use default logging formatter so that MyKakeiboID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
   # Use a different logger for distributed setups.

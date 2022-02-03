@@ -1,0 +1,2 @@
+class VariablecostsController < ApplicationController
+end
