@@ -37,4 +37,5 @@ class User < ApplicationRecord
   has_many :fixedcost_values
   has_many :variablecosts
   has_many :variablecost_values
+
 end

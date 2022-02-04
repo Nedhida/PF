@@ -64,6 +64,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+#devise日本語化
+gem 'devise-i18n'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'jquery-rails'
@@ -73,6 +75,6 @@ gem 'font-awesome-sass', '~> 5.13'
 #環境変数
 gem 'dotenv-rails'
 # 多言語化
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 5.1'
 
 gem 'rename'

@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'ad1e3fdf059769241f16a73888ddffce6d47c53390b5344ebddadb233340facc062352b0a6125dca992304e8983b6abe301ada2b329bef25d9558decb3ba3c67'
+  # config.secret_key = 'a6e23baf022605612b70ae8cab55c8f2944d73b7c5a4f1b4adc67149ad9d0fadc0d5eb9e262687bfa1c51b5a470ce1a8551c32d2a706f804052a05d4c649bd1b'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -71,11 +71,11 @@ Devise.setup do |config|
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
 
-  # Tell if authentication through HTTMyKakeibo Auth is enabled. False by default.
+  # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
   # given strategies, for example, `config.http_authenticatable = [:database]` will
   # enable it only for database authentication.
-  # For AMyKakeiboI-only applications to support authentication "out-of-the-box", you will likely want to
+  # For API-only applications to support authentication "out-of-the-box", you will likely want to
   # enable this with :database unless you are using a custom strategy.
   # The supported strategies are:
   # :database      = Support basic authentication with authentication key + password
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '36df7e90dd7a542657edc58e846a88b9555faa0742e0d6fd4c8231b44e57ada0905dad4ac6f564288df9cf92538002f3a0b08af8d4619bea76b2fe63781fb618'
+  # config.pepper = 'ff918853c5370c7a85eb3ceb49b90907a3a956e558a918399fb50d3558c8e9490113710349d909345ff9fd82e03a7314237f1c804e5106e48977125aef7a1640'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -265,13 +265,13 @@ Devise.setup do |config|
   # The "*/*" below is required to match Internet Explorer requests.
   # config.navigational_formats = ['*/*', :html]
 
-  # The default HTTMyKakeibo method used to sign out a resource. Default is :delete.
+  # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'AMyKakeiboMyKakeibo_ID', 'AMyKakeiboMyKakeibo_SECRET', scope: 'user,public_repo'
+  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
