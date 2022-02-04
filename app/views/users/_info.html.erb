@@ -1,0 +1,25 @@
+<div class="user-info">
+  <div class="user-info__title">ユーザー情報</div>
+  <%= attachment_image_tag(user, :profile_image, fallback: "user_no_image.jpg", size:'60x60', class:'user-info__image')%>
+  <div class="user-info__name">
+    ユーザー名
+    <%= user.name %>
+  </div>
+  <div class="user-info__introduction">
+    紹介文
+    <%= user.introduction %>
+  </div>
+  <div class="user-info__follows">
+
+  </div>
+  <div class="user-info__followers">
+
+  </div>
+  <div class="user-info__edit">
+    <% unless current_user == user %>
+      <%=render "users/show", user: user %>
+    <% else %>
+      <%= link_to 'ユーザー情報編集',edit_user_path(user) %>
+    <% end %>
+  </div>
+</div>
