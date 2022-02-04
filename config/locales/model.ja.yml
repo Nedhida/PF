@@ -23,7 +23,7 @@ ja:
       fixedcost_value:
         content: 内容
         date: 日付
-        value: "%{value}円"
+        value: 金額
         description: メモ
       income:
         name: 項目名
@@ -31,7 +31,7 @@ ja:
       income_value:
         content: 内容
         date: 日付
-        value: "%{value}円"
+        value: 金額
         description: メモ
       post:
         title: タイトル
@@ -46,13 +46,12 @@ ja:
       variablecost_value:
         content: 内容
         date: 日付
-        value: "%{value}円"
+        value: 金額
         description: メモ
 
     attributes:
     created_at: 作成日時
     updated_at: 更新日時
 
-    controller:
 
 

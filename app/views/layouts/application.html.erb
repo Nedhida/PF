@@ -13,54 +13,11 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-expend-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="/">
-            <span>私の家計簿</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="navbar-collapse collapse" id="navbarNavDropdown"style>
-            <% if user_signed_in? %>
-              <ul class="navbar-nav ml-auto">
-                <li>
-                  <%= link_to 'マイページ', user_path(current_user) %> 
-                </li>
-                <li>
-                  家計簿マイページ
-                </li>
-                <li>
-                  <%= link_to '投稿一覧', posts_path %>
-                </li>
-                <li>
-                  <%= link_to 'ユーザー一覧', users_path %>
-                </li>
-                <li>
-                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-                </li>
-              </ul>  
-            <% else %>
-              <ul class="navbar-nav ml-auto">
-                <li>
-                  <%= link_to 'マイページ', root_path %>
-                </li>
-                <li>
-                  <%= link_to 'アバウト', home_about_path %>
-                </li>
-                <li>
-                  <%= link_to 'サインアップ', new_user_registration_path %>
-                </li>
-                <li>
-                  <%= link_to 'ログイン', new_user_session_path %>
-                </li>
-              </ul>
-            <% end %>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <%= render 'layouts/header' %>
+
     <%= yield %>
+
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>
