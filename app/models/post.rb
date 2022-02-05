@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   has_many :comments, dependent: :destroy
 
-  attachment :image, dependent: :destroy
+  attachment :image
 
   #userのfavoriteの有無
   def favorited_by?(user)

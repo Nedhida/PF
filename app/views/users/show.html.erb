@@ -1,1 +1,6 @@
 <%= render 'info', user: @user %>
+
+<div class="my-posts">
+  <%= @user.name %>の投稿
+  <%= render 'posts/index',posts: @posts %>
+</div>
