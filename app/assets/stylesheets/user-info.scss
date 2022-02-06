@@ -1,4 +1,17 @@
 .user-info {
-  flex-basis: 30%;
-  margin: 30px;
+  margin-top: 30px;
+  width: 250px;
+
+  &__title{
+    font-size : 18px;
+  }
+
+  &__name {
+    display: flex;
+  }
+
+  &__l-name {
+    flex-grow: 2;
+    text-align: center;
+  }
 }

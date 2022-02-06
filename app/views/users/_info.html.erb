@@ -1,13 +1,23 @@
 <div class="user-info">
   <div class="user-info__title">ユーザー情報</div>
-  <%= attachment_image_tag(user, :profile_image, fallback: "user_no_image.jpg", size:'60x60', class:'user-info__image')%>
+  <div class="user-info__image">
+    <%= attachment_image_tag(user, :profile_image, fallback: "user_no_image.jpg", size:'60x60')%>
+  </div>
   <div class="user-info__name">
-    ユーザー名
-    <%= user.name %>
+    <div class="user-info__h-name">
+      ユーザー名
+    </div>
+    <div class="user-info__l-name">
+      <%= user.name %>
+    </div>
   </div>
   <div class="user-info__introduction">
-    紹介文
-    <%= user.introduction %>
+    <div class="user-info__h-introduction">
+      紹介文
+    </div>
+    <div class="user-info__l-introduction">
+      <%= user.introduction %>
+    </div>
   </div>
   <div class="user-info__follows">
 
@@ -15,14 +25,15 @@
   <div class="user-info__followers">
 
   </div>
-  <div class="user-info__edit">
+
     <% unless current_user == user %>
-      <%=render "users/show", user: user %>
     <% else %>
-      <%= link_to 'ユーザー情報編集',edit_user_path(user) %>
       <div class="move-page">
-        <%= link_to '新規投稿',new_post_path %>
+        <%= link_to 'ユーザー情報編集',edit_user_path(user), class:'move-page__user-edit' %>
+      </div>
+      <div class="move-page">
+        <%= link_to '新規投稿',new_post_path, class:'move-page__new-post' %>
       </div>
     <% end %>
-  </div>
+
 </div>
