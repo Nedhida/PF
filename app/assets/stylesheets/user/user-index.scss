@@ -7,11 +7,12 @@
     justify-content: space-between;
   }
 
-  &__account {
+  &__l-account {
     text-align: center;
   }
 
   &__image {
     display: block;
+    margin: 0 auto;
   }
 }

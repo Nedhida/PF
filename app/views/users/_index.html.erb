@@ -1,12 +1,15 @@
 <div class="user-index__content" >
   <% users.each do |user| %>
-    <div class="user-index__hd">
-      アカウント
-    </div>
+
     <div class="user-index__body" >
       <div class="user-index__account">
-        <%= attachment_image_tag(user, :profile_image, fallback: "user_no_image.jpg", size: '40x40', class:'user-index__image') %>
-        <%= user.name %>
+        <div class="user-index__h-account">
+          アカウント
+        </div>
+        <div class="user-index__l-account">
+          <%= attachment_image_tag(user, :profile_image, fallback: "user_no_image.jpg", size: '40x40', class:'user-index__image') %>
+          <%= user.name %>
+        </div>
       </div>
       <div class="move-page">
         <%= link_to '詳細', user_path(user), class:'move-page__user' %>

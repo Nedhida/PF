@@ -1,16 +1,36 @@
+
 <% unless posts.present? %>
-  <p>投稿がありません</p>
+  <div class="post-index__content">投稿がありません</div>
 <% else %>
   <% posts.each do |post| %>
-    <%= link_to user_path(post.user) do %>
-      <%= attachment_image_tag(post.user, :profile_image, fallback: "user_no_image.jpg", size: '40x40', class:'user-index__image') %>
-      <% post.user.name %>
-    <% end %>
-    <%= link_to post.title, post_path(post) %>
-    <% unless post.image.present? %>
-    <% else %>
-      <%= attachment_image_tag(post, :image, size: '40x40') %>
-      <%= post.body %>
-    <% end %>
+  <div class="post-index__content">
+    <div class="post-index__box">
+      <div class="post-index__h-account">アカウント</div>
+      <div class="post-index__l-account">
+        <%= link_to user_path(post.user), class:"post-index__account" do %>
+          <%= attachment_image_tag(post.user, :profile_image, fallback: "user_no_image.jpg", size: '40x40', class:'post-index__profile-image') %>
+          <%= post.user.name %>
+        <% end %>
+      </div>
+    </div>
+    <div class="post-index__box">
+      <div class="post-index__h-title">タイトル</div>
+      <%= link_to post.title, post_path(post), class:"post-index__l-title" %>
+    </div>
+    <div class="post-index__box">
+      <% unless post.image.present? %>
+      <% else %>
+        <div class="post-index__h-image">投稿画像</div>
+        <%= attachment_image_tag(post, :image, size: '40x40', class:'post-index__l-image') %>
+      <% end %>
+    </div>
+    <div class="post-index__box">
+      <div class="post-index__h-body">投稿内容</div>
+      <div class="post-index__h-body">
+        <%= post.body %>
+      </div>
+    </div>
+    
+  </div>
   <% end %>
 <% end %>

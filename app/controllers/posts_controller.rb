@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).reverse_order
     @user = current_user
   end
 
@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
@@ -40,7 +41,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.dostroy
+    @post.destroy
     redirect_to posts_path
   end
 
@@ -52,7 +53,7 @@ class PostsController < ApplicationController
 
   def ensure_correct_user
     @post = Post.find(params[:id])
-    unless @post.usre_id == current_user.id
+    unless @post.user_id == current_user.id
       redirect_to posts_path
     end
   end

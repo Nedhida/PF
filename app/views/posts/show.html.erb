@@ -3,6 +3,47 @@
     
     <div class="post-show">
       <h2 class="post-show__title">投稿の詳細</h2>
+      <div class="post-show__content">
+        <div class="post-show__box">
+          <div class="post-show__h-title">タイトル</div>
+          <div class="post-show__l-title">
+            <%= @post.title %>
+          </div>
+        </div>
+        <div class="post-show__box">
+          <% unless @post.image.present? %>
+          <% else %>
+            <div class="post-show__h-image">画像</div>
+            <div class="post-show__l-image">
+              <%= attachment_image_tag(@post, :image, size:'90x60')%>
+            </div>
+          <% end %>
+        </div>
+        <div class="post-show__box">
+          <div class="post-show__h-body">内容</div>
+          <div class="post-show__l-body">
+            <%= @post.body %>
+          </div>
+        </div>
+        <div class="post-show__box">
+          <div class="post-show__h-favorite">いいね数</div>
+          <div class="post-show__l-favorite"></div>
+        </div>
+        <div class="post-show__box">
+          <div class="post-show__h-comment">コメント数</div>
+          <div class="post-show__l-comment"></div>
+        </div>
+        <% if @post.user_id == current_user.id %>
+          <div class="move-page">
+            <%= link_to '編集する', edit_post_path(@post)%>
+          </div>
+          <div class="move-page">
+            <%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }%>
+          </div>
+        <% else %>
+          いいねする
+        <% end %>
+      </div>
       
     </div>
 </div>
