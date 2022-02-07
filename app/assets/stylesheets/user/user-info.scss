@@ -2,10 +2,6 @@
   margin-top: 30px;
   width: 250px;
 
-  &__title{
-    font-size : 18px;
-  }
-
   &__name {
     display: flex;
   }
@@ -13,5 +9,9 @@
   &__l-name {
     flex-grow: 2;
     text-align: center;
+  }
+
+  &__l-introduction {
+    margin: 0 20px;
   }
 }
