@@ -2,8 +2,16 @@
   margin: 30px;
   width: 700px;
 
-  &__body{
+  &__body {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__account {
+    text-align: center;
+  }
+
+  &__image {
+    display: block;
   }
 }

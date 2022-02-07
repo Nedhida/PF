@@ -1,3 +1,7 @@
-<% posts.each do |post| %>
-  <% post.name %>
+<% unless posts.present? %>
+  <p>投稿がありません</p>
+<% else %>
+  <% posts.each do |post| %>
+    <% post.name %>
+  <% end %>
 <% end %>
