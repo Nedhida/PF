@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   before_action :ensure_correct_user, only: [:update, :edit]
 
   def show
-    @posts = Post.new
     @post = Post.find(params[:id])
     @user = @post.user
   end
@@ -10,6 +9,11 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @user = current_user
+  end
+
+  def new
+    @user = current_user
+    @post = Post.new
   end
 
   def create
