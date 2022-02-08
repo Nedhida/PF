@@ -30,6 +30,9 @@
         <%= post.body %>
       </div>
     </div>
+    <div id="favorite_buttons_<%=post.id %>">
+      <%= render 'favorites/favorite', post: post %>
+    </div>
     
   </div>
   <% end %>

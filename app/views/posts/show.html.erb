@@ -1,6 +1,6 @@
 <div class="yield-layout">
     <%= render 'users/info', user: @user %>
-    
+
     <div class="post-show">
       <h2 class="post-show__title">投稿の詳細</h2>
       <div class="post-show__content">
@@ -27,7 +27,9 @@
         </div>
         <div class="post-show__box">
           <div class="post-show__h-favorite">いいね数</div>
-          <div class="post-show__l-favorite"></div>
+          <div class="post-show__l-favorite" id="favorite_buttons_<%=@post.id %>">
+            <%= render 'favorites/favorite', post: @post %>
+          </div>
         </div>
         <div class="post-show__box">
           <div class="post-show__h-comment">コメント数</div>
@@ -44,6 +46,6 @@
           いいねする
         <% end %>
       </div>
-      
+
     </div>
 </div>
