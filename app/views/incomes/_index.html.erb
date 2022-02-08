@@ -1,0 +1,13 @@
+
+<% if items.present? %>
+  <% items.each do |item| %>
+    項目名
+    <%= item.name %>
+    備考
+    <%= item.description %>
+    <%= link_to '編集する', edit_income_path(item) %>
+    <%= link_to '削除する', income_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+  <% end %>
+<% else %>
+  <div class="item-nothing">登録されている項目はありません</div>
+<% end %>
