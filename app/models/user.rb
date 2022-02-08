@@ -19,15 +19,17 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  #フォローするときの処理
   def follow(user_id)
-    self.active_relationships.create!(followed_id: user_id)
+    self.active_relationships.create(followed_id: user_id)
   end
 
-  #フォローがあればアンフォローする
+  #フォローを外す処理
   def unfollow(user_id)
     self.active_relationships.find_by(followed_id: user_id).destroy
   end
 
+  #フォローしているかの判定
   def following?(user)
     self.following.include?(user)
   end

@@ -8,7 +8,7 @@
       <div class="post-show__comment-body"><%= comment.comment %></div>
       <% if comment.user == current_user %>
           <div class="post-show__commnt-delete">
-            <%= link_to "削除する", post_comments_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
+            <%= link_to "削除する", post_comments_path(comment.post, comment.id), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
         </div>
       <% end %>
     </div>
