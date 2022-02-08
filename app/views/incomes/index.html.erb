@@ -2,11 +2,11 @@
   <div class="incomes-index__title">収入項目設定</div>
   <div class="incomes-index__register">
     <%= form_with model: @income, url:incomes_path, local: true do |f| %>
-      <%= render 'form', f: f %>
+      <%= render 'kakeibo-p/form', f: f %>
       <%= f.submit %>
     <% end %>
   </div>
   <div class="incomes-index__list">
-    <%= render 'index', items: @incomes %>
+    <%= render 'kakeibo-p/index', items: @incomes %>
   </div>
 </div>

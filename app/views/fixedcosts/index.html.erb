@@ -1,0 +1,12 @@
+<div class="fixedcosts-index">
+  <div class="fixedcosts-index__title">固定費項目設定</div>
+  <div class="fixedcosts-index__register">
+    <%= form_with model: @fixedcost, url:fixedcosts_path, local: true do |f| %>
+      <%= render 'kakeibo-p/form', f: f %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <div class="fixedcosts-index__list">
+    <%= render 'kakeibo-p/index', items: @fixedcosts %>
+  </div>
+</div>

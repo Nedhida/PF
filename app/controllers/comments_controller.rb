@@ -5,13 +5,11 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.post_id = @post.id
     @comment.save
-
   end
 
   def destroy
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.destroy
-
+    @comment = @post.comments.find(params[:id]).destroy
   end
 
   private

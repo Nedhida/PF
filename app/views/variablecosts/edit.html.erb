@@ -1,0 +1,9 @@
+<div class="variablecosts-edit">
+  <div class="variablecosts-edit__title">支出項目編集</div>
+  <div class="variablecosts-edit__register">
+    <%= form_with model: @variablecost, url:variablecost_path, local: true do |f| %>
+      <%= render 'kakeibo-p/form', f: f %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

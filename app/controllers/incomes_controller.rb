@@ -1,5 +1,5 @@
 class IncomesController < ApplicationController
-  before_action :ensure_correct_user, except: [:index]
+  before_action :ensure_correct_user, except: [:index, :create]
 
   def index
     user = current_user
@@ -9,6 +9,7 @@ class IncomesController < ApplicationController
 
 
 	def create
+	  @income = Income.new(income_params)
 	  if @income.save
 	    redirect_to incomes_path, notice: '収入項目を登録しました'
 	  else

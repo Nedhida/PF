@@ -1,0 +1,12 @@
+<div class="variablecosts-index">
+  <div class="variablecosts-index__title">支出項目設定</div>
+  <div class="variablecosts-index__register">
+    <%= form_with model: @variablecost, url:variablecosts_path, local: true do |f| %>
+      <%= render 'kakeibo-p/form', f: f %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <div class="variablecosts-index__list">
+    <%= render 'kakeibo-p/index', items: @variablecosts %>
+  </div>
+</div>
