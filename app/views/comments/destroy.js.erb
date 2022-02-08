@@ -1,0 +1,6 @@
+<!--id="comments-count"を更新　-->
+$("#comments-count").html("コメント件数: <%= @post.comments.count %>");
+<!--id="comments_areaをrenderで指定した部分テンプレートに更新-->
+$("#comments_area").html("<%= j(render 'comments/comments', post: @post) %>");
+<!--フォームを送信したあとにフォームの値を空に-->
+$("textarea").val('');
