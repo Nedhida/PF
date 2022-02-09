@@ -22,17 +22,18 @@ Rails.application.routes.draw do
   resources :incomes, :fixedcosts, :variablecosts,
             :income_values, :fixedcost_values, :variablecost_values
 
-  resources :records, only: [:show] do
-    member do
-      get :month
-    end
-  end
 
 	resources :graphs, except: [:index,:show,:new,:edit,:create,:update,:destroy] do
   	member do
   	  get :income_year, :income_month, :income_show,
-  	      :cost_year, :cost_month, :cost_show
+  	      :outgo_year, :outgo_month, :outgo_show
   	end
 	end
+	
+	post 'records/income_day(/:name)' => 'records#income_day'
+	post 'records/fixedcost_day(/:name)' => 'records#fixedcost_day'
+	post 'records/variablecost_day(/:name)' => 'records#variablecost_day'
+	post 'records/month(/:name)' => 'records#month'
+	post 'records/day(/:name)' => 'records#day'
 
 end
