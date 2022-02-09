@@ -22,12 +22,11 @@ class IncomesController < ApplicationController
 
 	def update
 	  if @income.update(income_params)
-      redirect_to incomes_path, notice: "収入項目を更新しました。"
-    else
-      render 'index'
-    end
-
-  end
+	    redirect_to incomes_path, notice: "収入項目を更新しました。"
+	  else
+	    render 'index'
+	  end
+	end
 
 
 	def destroy

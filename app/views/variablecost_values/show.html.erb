@@ -1,0 +1,9 @@
+<%= link_to '支出データ登録', new_variablecost_value_path %>
+
+  日付<%= @variablecost_value.date.strftime('%Y/%m/%d')%>
+  項目<%= @variablecost_value.variablecost.name %>
+  内容<%= @variablecost_value.content %>
+  金額<%= @variablecost_value.value.to_s(:delimited) %>円
+  備考<%= @variablecost_value.description %>
+  <%= link_to '編集する', edit_variablecost_value_path(@variablecost_value) %>
+  <%= link_to '削除する', variablecost_value_path(@variablecost_value), method: :delete, data: { confirm: '本当に消しますか？' }%>

@@ -1,0 +1,9 @@
+<%= link_to '固定費データ登録', new_fixedcost_value_path %>
+
+  日付<%= @fixedcost_value.date.strftime('%Y/%m/%d')%>
+  項目<%= @fixedcost_value.fixedcost.name %>
+  内容<%= @fixedcost_value.content %>
+  金額<%= @fixedcost_value.value.to_s(:delimited) %>円
+  備考<%= @fixedcost_value.description %>
+  <%= link_to '編集する', edit_fixedcost_value_path(@fixedcost_value) %>
+  <%= link_to '削除する', fixedcost_value_path(@fixedcost_value), method: :delete, data: { confirm: '本当に消しますか？' }%>

@@ -1,0 +1,10 @@
+<%= f.date_field :date %>
+<% unless @variablecosts.present? %>
+  <%= link_to '項目を設定', variablecosts_path(current_user) %>
+<% else %>
+  <%= f.collection_select(:variablecost_id, variablecosts.all, :id, :name, prompt: "選択してください") %>
+<% end %>
+内容<%= f.text_field :content %>
+金額<%= f.text_field :value %>
+備考<%= f.text_field :description %>
+<%= f.submit %>

@@ -1,0 +1,5 @@
+<%= form_with model:@variablecost_value, url: variablecost_values_path, method: :post, local: true do |f| %>
+
+  <%= render 'form', variablecosts: @variablecosts, f: f %>
+  
+<% end %>

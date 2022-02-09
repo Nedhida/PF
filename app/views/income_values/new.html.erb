@@ -1,0 +1,5 @@
+<%= form_with model:@income_value, url: income_values_path, method: :post, local: true do |f| %>
+
+  <%= render 'form', incomes: @incomes, f: f %>
+  
+<% end %>

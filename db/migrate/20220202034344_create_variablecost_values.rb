@@ -4,7 +4,7 @@ class CreateVariablecostValues < ActiveRecord::Migration[5.2]
 
       t.references :user, foreign_key: true, null: false
       t.references :variablecost, foreign_key: true, null: false
-      t.integer :content #支出内容
+      t.string :content #支出内容
       t.date :date, null:false #年月日
       t.integer :value, null: false #金額
       t.string :description #備考

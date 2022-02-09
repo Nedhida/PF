@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
   create_table "fixedcost_values", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "fixedcost_id", null: false
-    t.integer "content"
+    t.string "content"
     t.date "date", null: false
     t.integer "value", null: false
     t.string "description"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
   create_table "income_values", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "income_id", null: false
-    t.integer "content"
+    t.string "content"
     t.date "date", null: false
     t.integer "value", null: false
     t.string "description"
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
   create_table "variablecost_values", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "variablecost_id", null: false
-    t.integer "content"
+    t.string "content"
     t.date "date", null: false
     t.integer "value", null: false
     t.string "description"

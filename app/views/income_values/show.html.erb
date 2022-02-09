@@ -1,0 +1,9 @@
+<%= link_to '収入データ登録', new_income_value_path %>
+
+  日付<%= @income_value.date.strftime('%Y/%m/%d')%>
+  項目<%= @income_value.income.name %>
+  内容<%= @income_value.content %>
+  金額<%= @income_value.value.to_s(:delimited) %>円
+  備考<%= @income_value.description %>
+  <%= link_to '編集する', edit_income_value_path(@income_value) %>
+  <%= link_to '削除する', income_value_path(@income_value), method: :delete, data: { confirm: '本当に消しますか？' }%>

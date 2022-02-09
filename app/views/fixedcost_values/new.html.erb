@@ -1,0 +1,5 @@
+<%= form_with model:@fixedcost_value, url: fixedcost_values_path, method: :post, local: true do |f| %>
+
+  <%= render 'form', fixedcosts: @fixedcosts, f: f %>
+  
+<% end %>
