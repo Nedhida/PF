@@ -3,7 +3,7 @@ class VariablecostsController < ApplicationController
 
   def index
     user = current_user
-    @variablecosts = user.variablecost.all
+    @variablecosts = user.variablecosts.all
     @variablecost = Variablecost.new
   end
 

@@ -7,6 +7,17 @@
     <% end %>
   </div>
   <div class="fixedcosts-index__list">
-    <%= render 'kakeibo-p/index', items: @fixedcosts %>
+    <% if @fixedcosts.present? %>
+      <% @fixedcosts.each do |item| %>
+        項目名
+        <%= item.name %>
+        備考
+        <%= item.description %>
+        <%= link_to '編集する', edit_fixedcost_path(item) %>
+        <%= link_to '削除する', fixedcost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+      <% end %>
+    <% else %>
+      <div class="item-nothing">登録されている項目はありません</div>
+    <% end %>
   </div>
 </div>

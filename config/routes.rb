@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index,:show, :edit, :update] do
       get "search", to: "users#search"
-      resource :relationships, only: [:create, :destroy] #TODO: fix this
+      resource :relationships, only: [:create, :destroy]
       member do
         get :following, :followers
       end
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only: [:create,:destroy]
-    resource :favorites, only: [:create,:destroy] #TODO :fix this
+    resources :favorites, only: [:create,:destroy]
   end
 
   get '/search', to: 'searchs#search'
