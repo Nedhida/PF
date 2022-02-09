@@ -20,10 +20,16 @@
     </div>
   </div>
   <div class="user-info__follows">
-
+    フォロー数: 
+    <%= link_to following_user_path(user) do %>
+      <%= user.following.count %>
+    <% end %>
   </div>
   <div class="user-info__followers">
-
+    フォロワー数: 
+    <%= link_to followers_user_path(user) do %>
+      <%= user.followers.count %>
+    <% end %>
   </div>
 
     <% unless current_user == user %>

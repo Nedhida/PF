@@ -25,11 +25,11 @@
             <%= @post.body %>
           </div>
         </div>
-        <div class="post-show__box">
-          <div class="post-show__h-favorite">いいね数</div>
-          <div class="post-show__l-favorite" id="favorite_buttons_<%=@post.id %>">
-            <%= render 'favorites/favorite', post: @post %>
-          </div>
+        <div class="post-show__box" id="favorite_buttons_<%=@post.id %>">
+          <%= render 'favorites/favorite', post: @post %>
+        </div>
+        <div class="post-show__box" id="comments_count">
+          <%= render 'comments/count', post: @post %>
         </div>
         <div class="post-show__box" id="comments_form">
           <%= render 'comments/form', post: @post, comment: @comment %>
@@ -44,8 +44,6 @@
           <div class="move-page">
             <%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }%>
           </div>
-        <% else %>
-          いいねする
         <% end %>
       </div>
 

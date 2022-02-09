@@ -21,7 +21,20 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
-  
+
+   #フォロー一覧
+  def following
+    @users = User.find(params[:id])
+    @user = @users.following
+    render 'relationships/following'
+  end
+
+  #フォロワー一覧
+  def followers
+    @users = User.find(params[:id])
+    @user = @users.followers
+    render 'relationships/followers'
+  end
 
   private
 

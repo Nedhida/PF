@@ -1,7 +1,4 @@
-
-  <div class="post-show__comment-count">
-    コメント件数: <%= post.comments.count %>
-  </div>
+  
   <% post.comments.each do |comment| %>
     <div class="post-show__comments">
       <div class="post-show__comment-name"><%=comment.user.name %></div>
