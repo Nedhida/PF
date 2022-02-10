@@ -1,6 +1,6 @@
 <%= link_to '固定費データ登録', new_fixedcost_value_path %>
 
-  日付<%= @fixedcost_value.date.strftime('%Y/%m/%d')%>
+  日付<%= @fixedcost_value.start_time.strftime('%Y/%m/%d')%>
   項目<%= @fixedcost_value.fixedcost.name %>
   内容<%= @fixedcost_value.content %>
   金額<%= @fixedcost_value.value.to_s(:delimited) %>円

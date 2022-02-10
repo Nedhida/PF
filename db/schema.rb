@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
     t.integer "user_id", null: false
     t.integer "fixedcost_id", null: false
     t.string "content"
-    t.date "date", null: false
+    t.datetime "start_time", null: false
     t.integer "value", null: false
     t.string "description"
     t.datetime "created_at", null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
     t.integer "user_id", null: false
     t.integer "income_id", null: false
     t.string "content"
-    t.date "date", null: false
+    t.datetime "start_time", null: false
     t.integer "value", null: false
     t.string "description"
     t.datetime "created_at", null: false
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
     t.integer "user_id", null: false
     t.integer "variablecost_id", null: false
     t.string "content"
-    t.date "date", null: false
+    t.datetime "start_time", null: false
     t.integer "value", null: false
     t.string "description"
     t.datetime "created_at", null: false

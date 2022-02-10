@@ -4,7 +4,7 @@ class FixedcostValuesController < ApplicationController
   def index
     user = current_user
     @fixedcosts = user.fixedcosts.all
-    @fixedcost_values = user.fixedcost_values.order("date asc")
+    @fixedcost_values = user.fixedcost_values.order("start_time asc")
   end
 
   def show
@@ -47,7 +47,7 @@ class FixedcostValuesController < ApplicationController
   private
 
   def fixedcost_value_params
-    params.require(:fixedcost_value).permit(:fixedcost_id, :content, :date, :value, :description).merge(user_id: current_user.id)
+    params.require(:fixedcost_value).permit(:fixedcost_id, :content, :start_time, :value, :description).merge(user_id: current_user.id)
   end
 
   def ensure_correct_user

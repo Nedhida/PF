@@ -78,3 +78,5 @@ gem 'dotenv-rails'
 gem 'rails-i18n', '~> 5.1'
 
 gem 'rename'
+#カレンダー機能
+gem "simple_calendar", "~> 2.4"

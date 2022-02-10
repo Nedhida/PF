@@ -1,6 +1,6 @@
 <%= link_to '支出データ登録', new_variablecost_value_path %>
 
-  日付<%= @variablecost_value.date.strftime('%Y/%m/%d')%>
+  日付<%= @variablecost_value.start_time.strftime('%Y/%m/%d')%>
   項目<%= @variablecost_value.variablecost.name %>
   内容<%= @variablecost_value.content %>
   金額<%= @variablecost_value.value.to_s(:delimited) %>円

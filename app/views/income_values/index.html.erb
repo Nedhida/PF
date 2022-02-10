@@ -1,8 +1,10 @@
-<h1>削除予定</h1>
+
 日付選択
 <%= link_to '収入データ登録', new_income_value_path %>
-<%= render 'day_select' %>
 
-<% @income_values.each do |item| %>
-  <%= render 'index', item: item %>
+<%= month_calendar events: @income_values do |date, income_value| %>
+  <%= date.day %>
+  <% income_value.each do |value| %>
+    <%=link_to value.value, income_day_records_path %>
+  <% end %>
 <% end %>

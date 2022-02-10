@@ -4,7 +4,7 @@ class IncomeValuesController < ApplicationController
   def index
     user = current_user
     @incomes = user.incomes.all
-    @income_values = user.income_values.order("date asc")
+    @income_values = user.income_values.order("start_time asc")
   end
 
   def show
@@ -47,7 +47,7 @@ class IncomeValuesController < ApplicationController
   private
 
   def income_value_params
-    params.require(:income_value).permit(:income_id, :content, :date, :value, :description).merge(user_id: current_user.id)
+    params.require(:income_value).permit(:income_id, :content, :start_time, :value, :description).merge(user_id: current_user.id)
   end
 
   def ensure_correct_user

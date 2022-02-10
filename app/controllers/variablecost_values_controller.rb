@@ -4,7 +4,7 @@ class VariablecostValuesController < ApplicationController
   def index
     user = current_user
     @variablecosts = user.variablecosts.all
-    @variablecost_values = user.variablecost_values.order("date asc")
+    @variablecost_values = user.variablecost_values.order("start_time asc")
   end
 
   def show
@@ -47,7 +47,7 @@ class VariablecostValuesController < ApplicationController
   private
 
   def variablecost_value_params
-    params.require(:variablecost_value).permit(:variablecost_id, :content, :date, :value, :description).merge(user_id: current_user.id)
+    params.require(:variablecost_value).permit(:variablecost_id, :content, :start_time, :value, :description).merge(user_id: current_user.id)
   end
 
   def ensure_correct_user
