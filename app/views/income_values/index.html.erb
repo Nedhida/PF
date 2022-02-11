@@ -4,7 +4,7 @@
 
 <%= month_calendar events: @income_values do |date, income_value| %>
   <%= date.day %>
-  <% income_value.each do |value| %>
-    <%=link_to value.value, income_day_records_path(date) %>
+  <% income_value.each do |item| %>
+    <%=link_to item.value, {controller: "records", action: "income_day", order: item.start_time}, method: :post %>
   <% end %>
 <% end %>

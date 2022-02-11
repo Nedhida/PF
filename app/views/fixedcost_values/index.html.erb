@@ -1,17 +1,14 @@
-<h1>削除予定</h1>
+
 日付選択
-<%= link_to '収入データ登録', new_fixedcost_value_path %>
-<%= form_tag({controller: :fixedcost_values, action: :index}, {method: :post}) do %>
-  <input type="date" name="start_time" >
-  <input type="submit" >
-<% end %>
+<%= link_to '固定費データ登録', new_fixedcost_value_path %>
+
 
 <% @fixedcost_values.each do |item| %>
-  日付<%= item.start_time.strftime('%Y/%m/%d')%>
-  項目<%= item.income.name %>
-  内容<%= item.content %>
-  金額<%= item.value.to_s(:delimited) %>円
-  備考<%= item.description %>
-  <%= link_to '編集する', edit_fixedcost_value_path(item) %>
-  <%= link_to '削除する', fixedcost_value_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+  <%= render 'index', item: item %>
+<% end %>
+<%= month_calendar events: @fixedcost_values do |date, fixedcost_value| %>
+  <%= date.day %>
+  <% fixedcost_value.each do |item| %>
+    <%=link_to item.value, {controller: "records", action: "fixedcost_day", order: item.start_time}, method: :post %>
+  <% end %>
 <% end %>

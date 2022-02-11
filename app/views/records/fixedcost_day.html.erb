@@ -1,0 +1,15 @@
+記録
+<%= link_to '固定費データ登録', new_fixedcost_value_path %>
+<%= render 'fixedcost_values/day_select' %>
+
+<% if @fixedcost_values.present? %>
+  <% @fixedcost_values.each do |item| %>
+
+    <%= render 'fixedcost_values/index', item: item %>
+
+ <% end %>
+  合計
+  <%= @fixedcost_values_total %> 円
+<% else %>
+  登録がありません
+<% end %>

@@ -1,15 +1,15 @@
 記録
+<%= link_to '収入データ登録', new_income_value_path %>
+<%= render 'income_values/day_select' %>
 
+<% if @income_values.present? %>
+  <% @income_values.each do |item| %>
+  
+    <%= render 'income_values/index', item: item %>
 
-<%= calendar(number_of_days: 1) do |date| %>
-  <%= date.day %>
-  <% if @income_values.present? %>
-    <% @income_values.each do |item| %>
-      <%= render 'income_values/index', item: item %>
-    <% end %>
-    合計
-    <%= @income_value_total %> 円
-  <% else %>
-    登録がありません
-  <% end %>
-<% end %>
+ <% end %>
+  合計
+  <%= @income_value_total %> 円
+<% else %>
+  登録がありません
+<% end %> 

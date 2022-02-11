@@ -1,0 +1,43 @@
+記録
+<%= render 'income_values/day_select' %>
+
+
+
+<% if @income_values.present? %>
+  収入記録
+  <% @income_values.each do |item| %>
+  
+    <%= render 'income_values/index', item: item %>
+
+ <% end %>
+  収入合計
+  <%= @income_value_total %> 円
+<% else %>
+<% end %> 
+
+<% if @fixedcost_values.present? %>
+  固定費記録
+  <% @fixedcost_values.each do |item| %>
+  
+    <%= render 'fixedcost_values/index', item: item %>
+
+ <% end %>
+  固定費合計
+  <%= @fixedcost_values_total %> 円
+<% else %>
+<% end %> 
+
+
+<% if @variablecost_values.present? %>
+  支出記録
+  <% @variablecost_values.each do |item| %>
+  
+    <%= render 'variablecost_values/index', item: item %>
+
+ <% end %>
+  支出合計
+  <%= @variablecost_values_total %> 円
+<% else %>
+<% end %> 
+
+<%= @day_total %>円

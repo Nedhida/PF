@@ -1,0 +1,15 @@
+記録
+<%= link_to '支出データ登録', new_variablecost_value_path %>
+<%= render 'variablecost_values/day_select' %>
+
+<% if @variablecost_values.present? %>
+  <% @variablecost_values.each do |item| %>
+
+    <%= render 'variablecost_values/index', item: item %>
+
+ <% end %>
+  合計
+  <%= @variablecost_values_total %> 円
+<% else %>
+  登録がありません
+<% end %>
