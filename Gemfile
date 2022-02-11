@@ -72,8 +72,6 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5'
 gem 'kaminari','~> 1.2.1'
 gem 'font-awesome-sass', '~> 5.13'
-#環境変数
-gem 'dotenv-rails'
 # 多言語化
 gem 'rails-i18n', '~> 5.1'
 
@@ -81,3 +79,9 @@ gem 'rename'
 #カレンダー機能
 gem "simple_calendar", "~> 2.4"
 
+#MySQL利用に必要
+#dotenv-railsでプロジェクトごとにファイルベースで環境変数を管理
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
