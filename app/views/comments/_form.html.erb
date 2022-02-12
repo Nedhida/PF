@@ -1,7 +1,7 @@
 <% unless post.user_id == current_user.id %>
   <div class="post-show__h-comment">コメント</div>
   <div class="post-show__new-comment">
-    <%= form_with(model:[variablecost_value, comment],method: :post, remote: true) do |f| %>
+    <%= form_with(model:[post, comment],method: :post, remote: true) do |f| %>
       <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
       <%= f.submit "送信する" %>
     <% end %>
