@@ -7,4 +7,5 @@
 内容<%= f.text_field :content %>
 金額<%= f.text_field :value %>
 備考<%= f.text_field :description %>
+ <%= f.select :privacy, [["公開", 1], ["非公開", 2]], include_blank: "選択して下さい" %>
 <%= f.submit %>

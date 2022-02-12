@@ -8,6 +8,7 @@ class CreateVariablecostValues < ActiveRecord::Migration[5.2]
       t.date :start_time, null:false #年月日
       t.integer :value, null: false #金額
       t.string :description #備考
+      t.string :privacy #公開範囲
 
       t.timestamps
     end

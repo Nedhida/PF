@@ -47,7 +47,7 @@ class VariablecostValuesController < ApplicationController
   private
 
   def variablecost_value_params
-    params.require(:variablecost_value).permit(:variablecost_id, :content, :start_time, :value, :description).merge(user_id: current_user.id)
+    params.require(:variablecost_value).permit(:variablecost_id, :content, :start_time, :value, :description, :privacy).merge(user_id: current_user.id)
   end
 
   def ensure_correct_user
