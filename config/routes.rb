@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   post 'records/income_day(/:name)' => 'records#income_day'
 	post 'records/fixedcost_day(/:name)' => 'records#fixedcost_day'
 	post 'records/variablecost_day(/:name)' => 'records#variablecost_day'
-	post 'records/month(/:name)' => 'records#month'
+	get 'records/month' => 'records#month'
 	post 'records/day(/:name)' => 'records#day'
 
 end
