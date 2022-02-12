@@ -14,22 +14,22 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.integer "variablecost_value_id", null: false
     t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["variablecost_value_id"], name: "index_comments_on_variablecost_value_id"
   end
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.integer "variablecost_value_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_favorites_on_post_id"
-    t.index ["user_id", "post_id"], name: "index_favorites_on_user_id_and_post_id", unique: true
+    t.index ["user_id", "variablecost_value_id"], name: "index_favorites_on_user_id_and_variablecost_value_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
+    t.index ["variablecost_value_id"], name: "index_favorites_on_variablecost_value_id"
   end
 
   create_table "fixedcost_values", force: :cascade do |t|
@@ -74,16 +74,6 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_incomes_on_user_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "title", null: false
-    t.string "image_id"
-    t.text "body", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|

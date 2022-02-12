@@ -1,14 +1,14 @@
 class FavoritesController < ApplicationController
 
   def create
-    @post = Post.find(params[:post_id])
-    favorite = current_user.favorites.new(post_id: @post.id)
-    favorite.save
+    @variablecost_value = VariablecostValue.find(params[:variablecost_value_id])
+    favorite = current_user.favorites.new(variablecost_value_id: @variablecost_value.id)
+    favorite.save!
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    favorite = current_user.favorites.find_by(post_id: @post.id)
+    @variablecost_value = VariablecostValue.find(params[:variablecost_value_id])
+    favorite = current_user.favorites.find_by(variablecost_value_id: @variablecost_value.id)
     favorite.destroy
   end
 

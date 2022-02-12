@@ -1,5 +1,5 @@
-$("#comments_count").html("<%= j(render 'comments/count', post: @post ) %>");
+$("#comments_count").html("<%= j(render 'comments/count', post: @variablecost_value ) %>");
 <!--id="comments_areaをrenderで指定した部分テンプレートに更新-->
-$("#comments_area").html("<%= j(render 'comments/comments', post: @post) %>");
+$("#comments_area").html("<%= j(render 'comments/comments', post: @variablecost_value) %>");
 <!--フォームを送信したあとにフォームの値を空に-->
 $("textarea").val('');

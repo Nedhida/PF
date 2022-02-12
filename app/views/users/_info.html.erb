@@ -20,13 +20,13 @@
     </div>
   </div>
   <div class="user-info__follows">
-    フォロー数: 
+    フォロー数:
     <%= link_to following_user_path(user) do %>
       <%= user.following.count %>
     <% end %>
   </div>
   <div class="user-info__followers">
-    フォロワー数: 
+    フォロワー数:
     <%= link_to followers_user_path(user) do %>
       <%= user.followers.count %>
     <% end %>
@@ -38,7 +38,7 @@
         <%= link_to 'ユーザー情報編集',edit_user_path(user), class:'move-page__user-edit' %>
       </div>
       <div class="move-page">
-        <%= link_to '新規投稿',new_post_path, class:'move-page__new-post' %>
+        <%= link_to '新規投稿',new_variablecost_value_path, class:'move-page__new-post' %>
       </div>
     <% end %>
 

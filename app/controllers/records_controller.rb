@@ -27,7 +27,7 @@ class RecordsController < ApplicationController
 
   #日の収支合計
   def day
-    @day_total = @income_value_total - (@fixedcost_value_total + @variablecost_value_total)
+    @day_total = @income_value_total + @fixedcost_value_total + @variablecost_value_total
   end
 
 

@@ -1,15 +1,15 @@
 class CommentsController < ApplicationController
 
   def create
-    @post = Post.find(params[:post_id])
+    @variablecost_value = VariablecostValue.find(params[:variablecost_value_id])
     @comment = current_user.comments.new(comment_params)
-    @comment.post_id = @post.id
+    @comment.variablecost_value_id = @variablecost_value.id
     @comment.save
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id]).destroy
+    @variablecost_value = VariablecostValue.find(params[:variablecost_value_id])
+    @comment = @variablecost_value.comments.find(params[:id]).destroy
   end
 
   private

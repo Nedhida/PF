@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @variablecost_values = @user.variablecost_values.page(params[:page]).reverse_order
   end
 
   def index

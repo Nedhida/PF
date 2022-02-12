@@ -12,7 +12,9 @@ Rails.application.routes.draw do
       end
     end
 
-  resources :posts do
+  resources :posts, only: [:index, :show]
+
+  resources :variablecost_values do
     resources :comments, only: [:create,:destroy]
     resource :favorites, only: [:create,:destroy]
   end

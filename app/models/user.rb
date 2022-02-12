@@ -3,11 +3,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  has_many :posts, dependent: :destroy
+         
+  has_many :incomes
+  has_many :income_values
+  has_many :fixedcosts
+  has_many :fixedcost_values
+  has_many :variablecosts
+  has_many :variablecost_values
+  
   has_many :favorites, dependent: :destroy
   #ユーザーがどの投稿をいいねしているか取得
-  has_many :favorite_posts, through: :favorites, source: :post
+  has_many :favorite_variablecost_values, through: :favorites, source: :variablecost_value
   has_many :comments, dependent: :destroy
 
   attachment :profile_image
@@ -33,12 +39,5 @@ class User < ApplicationRecord
   def following?(user)
     self.following.include?(user)
   end
-
-  has_many :incomes
-  has_many :income_values
-  has_many :fixedcosts
-  has_many :fixedcost_values
-  has_many :variablecosts
-  has_many :variablecost_values
 
 end
