@@ -6,7 +6,13 @@
 
 <%= month_calendar events: @all_values do |date, all_value| %>
   <%=link_to date.day, {controller: "records", action: "day"}, method: :post %>
+  <% sum_all_values = 0 %>
   <% all_value.each do |item| %>
-    <%= item.value %>
+    <% if item.code == 2 || item.code == 3 %>
+      <% sum_all_values -= item.value %>
+    <% else %>
+      <% sum_all_values += item.value %>
+    <% end %>
   <% end %>
+  <%= sum_all_values %>
 <% end %>

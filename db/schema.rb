@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
     t.date "start_time", null: false
     t.integer "value", null: false
     t.string "description"
+    t.integer "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fixedcost_id"], name: "index_fixedcost_values_on_fixedcost_id"
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
     t.date "start_time", null: false
     t.integer "value", null: false
     t.string "description"
+    t.integer "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["income_id"], name: "index_income_values_on_income_id"
@@ -109,6 +111,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_230642) do
     t.integer "value", null: false
     t.string "description"
     t.string "privacy"
+    t.integer "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_variablecost_values_on_user_id"

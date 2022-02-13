@@ -47,7 +47,7 @@ class FixedcostValuesController < ApplicationController
   private
 
   def fixedcost_value_params
-    params.require(:fixedcost_value).permit(:fixedcost_id, :content, :start_time, :value, :description).merge(user_id: current_user.id)
+    params.require(:fixedcost_value).permit(:fixedcost_id, :content, :start_time, :value, :description).merge(user_id: current_user.id, code: 2)
   end
 
   def ensure_correct_user

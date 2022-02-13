@@ -47,7 +47,7 @@ class IncomeValuesController < ApplicationController
   private
 
   def income_value_params
-    params.require(:income_value).permit(:income_id, :content, :start_time, :value, :description).merge(user_id: current_user.id)
+    params.require(:income_value).permit(:income_id, :content, :start_time, :value, :description).merge(user_id: current_user.id, code: 1)
   end
 
   def ensure_correct_user

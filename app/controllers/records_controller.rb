@@ -1,8 +1,8 @@
 class RecordsController < ApplicationController
   before_action :set_start_time
-  before_action :income, only: %i[income_day day]
-  before_action :fixedcost, only: %i[fixedcost_day day]
-  before_action :variablecost, only: %i[variablecost_day day]
+  before_action :income, only: %i[income_day day graph_month]
+  before_action :fixedcost, only: %i[fixedcost_day day graph_month]
+  before_action :variablecost, only: %i[variablecost_day day graph_month]
 
   #月の収支合計カレンダー
   def month
@@ -27,7 +27,13 @@ class RecordsController < ApplicationController
 
   #日の収支合計
   def day
-    @day_total = @income_value_total + @fixedcost_value_total + @variablecost_value_total
+    @day_total = @income_value_total - (@fixedcost_value_total + @variablecost_value_total)
+  end
+
+  def graph_month
+  end
+
+  def graph_year
   end
 
 
@@ -52,7 +58,7 @@ class RecordsController < ApplicationController
     @fixedcost_values = FixedcostValue.where(start_time: @start_time)
     @fixedcost_value_total = 0
     @fixedcost_values.each do |fixedcost_value|
-      @fixedcost_value_total -= fixedcost_value.value
+      @fixedcost_value_total += fixedcost_value.value
     end
   end
 
@@ -61,7 +67,7 @@ class RecordsController < ApplicationController
     @variablecost_values = VariablecostValue.where(start_time: @start_time)
     @variablecost_value_total = 0
     @variablecost_values.each do |variablecost_value|
-      @variablecost_value_total -=  variablecost_value.value
+      @variablecost_value_total +=  variablecost_value.value
     end
   end
 
