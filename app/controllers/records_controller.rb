@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :set_start_time, except: [:graph_month]
+  before_action :set_start_time
   before_action :income, only: %i[income_day day graph_month]
   before_action :fixedcost, only: %i[fixedcost_day day graph_month]
   before_action :variablecost, only: %i[variablecost_day day graph_month]
@@ -31,7 +31,8 @@ class RecordsController < ApplicationController
   end
 
   def graph_month
-    @fixedcost_values = FixedcostValue.where('start_time LIKE?', '%#{params[:start_time]}')
+    @start_month = @start_time.map { |start_time| start_time + day(1) }
+    @fixedcost_values = FixedcostValue.where(start_time: @start_time.beginning_of_month .. @start_time.end_of_month)
     @fixedcost_value_total = 0
     @fixedcost_values.each do |fixedcost_value|
       @fixedcost_value_total += fixedcost_value.value
