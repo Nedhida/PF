@@ -1,6 +1,6 @@
-<%= form_tag({controller: :records, action: :graph_month}, {method: :post}) do %>
-  <input type="month", name="start_time">
-  <input type="submit">
+<%= form_with url: {controller: 'records', action: 'graph_month'}, method: :get, local: true do |f| %>
+  <%= f.month_field "start_time" %>
+  <%= f.submit %>
 <% end %>
 <canvas id="myChart" width="400" height="400"></canvas>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -18,7 +18,7 @@
                  'blue',
                  ],
              label: 'dataset example',
-             data: [<%= @income_value_total %>, <%= @fixedcost_value_total %>, <%= @variablecost_value_total %> ]
+             data: [<%= @income_value_total.month %>, <%= @fixedcost_value_total.month %>, <%= @variablecost_value_total.month %> ]
          }]
      },
 

@@ -23,14 +23,12 @@ Rails.application.routes.draw do
 
   resources :incomes, :fixedcosts, :variablecosts,
             :income_values, :fixedcost_values, :variablecost_values
-
-	post 'records/graphs_month(/:name)' => 'records#graphs_month'
-  post 'records/income_day(/:name)' => 'records#income_day'
-	post 'records/fixedcost_day(/:name)' => 'records#fixedcost_day'
-	get 'records/variablecost_day' => 'records#variablecost_day'
-	get 'records/month' => 'records#month'
-	post 'records/day(/:name)' => 'records#day'
-	post 'records/graph_month(/:name)' => 'records#graph_month'
-	post 'records/graph_year(/:name)' => 'records#graph_year'
+            
+  resources :records, only: [:show] do
+    collection do
+      get :income_day, :fixedcost_day, :variablecost_day, :month, :day,
+          :graph_month, :graph_year
+    end
+  end
 
 end

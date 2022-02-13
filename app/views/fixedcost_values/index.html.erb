@@ -9,6 +9,6 @@
 <%= month_calendar events: @fixedcost_values do |date, fixedcost_value| %>
   <%= date.day %>
   <% fixedcost_value.each do |item| %>
-    <%=link_to item.value, {controller: "records", action: "fixedcost_day", order: item.start_time}, method: :post %>
+    <%=link_to item.value, {controller: "records", action: "fixedcost_day", start_time: item.start_time} %>
   <% end %>
 <% end %>
