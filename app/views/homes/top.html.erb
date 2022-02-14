@@ -1,4 +1,13 @@
-<%= form_with url: {controller: 'records', action: 'graph_month'}, method: :get, local: true do |f| %>
-  <%= f.month_field "start_time" %>
-  <%= f.submit %>
+<h1>私の家計簿</h1>
+<% if user_signed_in? %>
+<div>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+</div>
+<% else %>
+<div>
+  <%= link_to 'サインアップ', new_user_registration_path %>
+</div>
+<div>
+  <%= link_to 'ログイン', new_user_session_path %>
+</div>
 <% end %>

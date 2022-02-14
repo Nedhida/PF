@@ -31,13 +31,21 @@ class RecordsController < ApplicationController
   end
 
   def graph_month
-    @start_month = @start_time.map { |start_time| start_time + day(1) }
-    @fixedcost_values = FixedcostValue.where(start_time: @start_time.beginning_of_month .. @start_time.end_of_month)
-    @fixedcost_value_total = 0
-    @fixedcost_values.each do |fixedcost_value|
-      @fixedcost_value_total += fixedcost_value.value
-    end
+    @fixedcost_values = FixedcostValue.group("MONTH(start_time)")
+    byebug
   end
+
+  #@start_time = '2022-02' view
+  #+
+  #start_time = '2022-02-14' clomun
+  #=
+  #@fixedcost_values = nil
+  #↓
+
+  #@start_time = '2022-02-01'
+  #OR
+  #start_time = '2022-02'
+
 
   def graph_year
   end
