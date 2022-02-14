@@ -1,6 +1,39 @@
-  項目<%= item.fixedcost.name %>
-  内容<%= item.content %>
-  金額<%= item.value.to_s(:delimited) %>円
-  備考<%= item.description %>
-  <%= link_to '編集する', edit_fixedcost_value_path(item) %>
-  <%= link_to '削除する', fixedcost_value_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+
+<div class="fixedcost_values">
+      
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
+      項目<%= item.fixedcost.name %>
+      </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
+      内容<%= item.content %>
+    </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
+      金額<%= item.value.to_s(:delimited) %>円
+    </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
+      備考<%= item.description %>
+    </div>
+  </div>
+  <div class="">
+    <div class="">
+      <%= link_to '編集する', edit_fixedcost_value_path(item) %>
+    </div>
+  </div>
+  <div class="">
+    <div class="">
+      <%= link_to '削除する', fixedcost_value_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+    </div>
+  </div>
+  
+</div>

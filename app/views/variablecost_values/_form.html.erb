@@ -1,11 +1,52 @@
-<%= f.date_field :start_time %>
-<% unless @variablecosts.present? %>
-  <%= link_to '項目を設定', variablecosts_path(current_user) %>
-<% else %>
-  <%= f.collection_select(:variablecost_id, variablecosts.all, :id, :name, prompt: "選択してください") %>
-<% end %>
-内容<%= f.text_field :content %>
-金額<%= f.text_field :value %>
-備考<%= f.text_field :description %>
- <%= f.select :privacy, [["公開", 1], ["非公開", 2]], include_blank: "選択して下さい" %>
-<%= f.submit %>
+<div class="variablecost-value-form">
+  <div class="variablecost-value-form__box">
+    <div class="variablecost-value-form__head">日付</div>
+    <div class="variablecost-value-form__date">
+      <%= f.date_field :start_time %>
+    </div>
+  </div>
+  <% unless @variablecosts.present? %>
+  <div class="variablecost-value-form__box">
+    <div class="variablecost-value-form__item">
+      <%= link_to '項目を設定', variablecosts_path(current_user) %>
+    </div>
+  </div>
+  <% else %>
+  <div class="variablecost-value-form__box">
+    <div class="variablecost-value-form__head">項目選択</div>
+    <div class="variablecost-value-form__item">
+      <%= f.collection_select(:variablecost_id, variablecosts.all, :id, :name, prompt: "選択してください") %>
+    </div>
+  </div>
+  <% end %>
+  <div class="variablecost-value-form__box">
+    <div class="variablecost-value-form__head">内容</div>
+    <div class="variablecost-value-form__content">
+      <%= f.text_field :content %>
+    </div>
+  </div>
+  <div class="variablecost-value-form__box">
+    <div class="variablecost-value-form__head">金額</div>
+    <div class="variablecost-value-form__value">
+      <%= f.text_field :value %>
+    </div>
+  </div>
+  <div class="variablecost-value-form__box">
+    <div class="variablecost-value-form__head">備考</div>
+    <div class="variablecost-value-form__discription">
+      <%= f.text_field :description %>
+    </div>
+  </div>
+  <div class="variablecost-value-form__box">
+    <div class="variablecost-value-form__head">公開・非公開を選択</div>
+    <div class="variablecost-value-form__privacy">
+      <%= f.select :privacy, [["公開", 1], ["非公開", 2]], include_blank: "選択して下さい" %>
+    </div>
+  </div>
+  <div class="">
+    <div class=""></div>
+    <div class="">
+      <%= f.submit %>
+    </div>
+  </div>
+</div>

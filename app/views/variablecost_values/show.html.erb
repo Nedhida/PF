@@ -1,9 +1,44 @@
-<%= link_to '支出データ登録', new_variablecost_value_path %>
 
-  日付<%= @variablecost_value.start_time.strftime('%Y/%m/%d')%>
-  項目<%= @variablecost_value.variablecost.name %>
-  内容<%= @variablecost_value.content %>
-  金額<%= @variablecost_value.value.to_s(:delimited) %>円
-  備考<%= @variablecost_value.description %>
-  <%= link_to '編集する', edit_variablecost_value_path(@variablecost_value) %>
-  <%= link_to '削除する', variablecost_value_path(@variablecost_value), method: :delete, data: { confirm: '本当に消しますか？' }%>
+<div class="variablecost-value-show">
+
+  <div class="">
+    <%= link_to '支出データ登録', new_variablecost_value_path %>
+  </div>
+  <div class="variablecost-value-show__box">
+    <div class="variablecost-value-show__head">日付</div>
+    <div class="variablecost-value-show__day">
+      <%= @variablecost_value.start_time.strftime('%Y/%m/%d')%>
+    </div>
+  </div>
+  <div class="variablecost-value-show__box">
+    <div class="variablecost-value-show__head">項目</div>
+    <div class="variablecost-value-show__item">
+      <%= @variablecost_value.variablecost.name %>
+    </div>
+  </div>
+  <div class="variablecost-value-show__box">
+    <div class="variablecost-value-show__head">内容</div>
+    <div class="variablecost-value-show__content">
+      <%= @variablecost_value.content %>
+    </div>
+  </div>
+  <div class="variablecost-value-show__box">
+    <div class="variablecost-value-show__head">金額</div>
+    <div class="variablecost-value-show__value">
+      <%= @variablecost_value.value.to_s(:delimited) %>円
+    </div>
+  </div>
+  <div class="variablecost-value-show__box">
+    <div class="variablecost-value-show__head">備考</div>
+    <div class="variablecost-value-show__discription">
+      <%= @variablecost_value.description %>
+    </div>
+  </div>
+  <div class="">
+    <%= link_to '編集する', edit_variablecost_value_path(@variablecost_value) %>
+  </div>
+  <div class="">
+    <%= link_to '削除する', variablecost_value_path(@variablecost_value), method: :delete, data: { confirm: '本当に消しますか？' }%>
+  </div>
+    
+</div>

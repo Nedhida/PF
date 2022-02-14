@@ -1,9 +1,53 @@
+<div class="fixedcost_values">
+  
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
 <%= link_to '固定費データ登録', new_fixedcost_value_path %>
-
+    </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
   日付<%= @fixedcost_value.start_time.strftime('%Y/%m/%d')%>
+      </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
   項目<%= @fixedcost_value.fixedcost.name %>
+      </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
   内容<%= @fixedcost_value.content %>
+      </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
   金額<%= @fixedcost_value.value.to_s(:delimited) %>円
+      </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
   備考<%= @fixedcost_value.description %>
+      </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
   <%= link_to '編集する', edit_fixedcost_value_path(@fixedcost_value) %>
+      </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">
   <%= link_to '削除する', fixedcost_value_path(@fixedcost_value), method: :delete, data: { confirm: '本当に消しますか？' }%>
+      </div>
+  </div>
+  <div class="fixedcost_values">
+    <div class="fixedcost_values"></div>
+    <div class="fixedcost_values">

@@ -2,7 +2,6 @@
 日付選択
 <%= link_to '固定費データ登録', new_fixedcost_value_path %>
 
-
 <% @fixedcost_values.each do |item| %>
   <%= render 'index', item: item %>
 <% end %>

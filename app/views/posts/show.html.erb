@@ -5,31 +5,31 @@
       <h2 class="post-show__title">投稿の詳細</h2>
       <div class="post-show__content">
         <div class="post-show__box">
-          <div class="post-show__h-date">日付</div>
+          <div class="post-show__head">日付：</div>
           <div class="post-show__l-date">
             <%= @variablecost_value.start_time.strftime('%Y/%m/%d') %>
           </div>
         </div>
         <div class="post-show__box">
-          <div class="post-show__h-name">項目</div>
+          <div class="post-show__head">項目：</div>
           <div class="post-show__l-name">
             <%= @variablecost_value.variablecost.name %>
           </div>
         </div>
         <div class="post-show__box">
-          <div class="post-show__h-content">内容</div>
+          <div class="post-show__head">内容：</div>
           <div class="post-show__l-content">
             <%= @variablecost_value.content %>
           </div>
         </div>
         <div class="post-show__box">
-          <div class="post-show__h-value">金額</div>
+          <div class="post-show__head">金額：</div>
           <div class="post-show__l-value">
             <%= @variablecost_value.value %>
           </div>
         </div>
         <div class="post-show__box">
-          <div class="post-show__h-description">備考</div>
+          <div class="post-show__head">備考：</div>
           <div class="post-show__l-description">
             <%= @variablecost_value.description %>
           </div>

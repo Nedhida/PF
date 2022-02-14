@@ -1,6 +1,39 @@
-  項目<%= item.income.name %>
-  内容<%= item.content %>
-  金額<%= item.value.to_s(:delimited) %>円
-  備考<%= item.description %>
-  <%= link_to '編集する', edit_income_value_path(item) %>
-  <%= link_to '削除する', income_value_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+<div class="income_values-index">
+
+  <div class="income_values-index__box">
+    <div class="income_values-index__head">項目</div>
+    <div class="income_values-index__item">
+      <%= item.income.name %>
+    </div>
+  </div>
+  <div class="income_values-index__box">
+    <div class="income_values-index__head">内容</div>
+    <div class="income_values-index__content">
+      <%= item.content %>
+    </div>
+  </div>
+  <div class="income_values-index__box">
+    <div class="income_values-index__head">金額</div>
+    <div class="income_values-index__value">
+      <%= item.value.to_s(:delimited) %>円
+    </div>
+  </div>
+  <div class="income_values-index__box">
+    <div class="income_values-index__head">備考</div>
+    <div class="income_values-index__description">
+      <%= item.description %>
+    </div>
+  </div>
+  <div class="">
+    <div class="">
+      <%= link_to '編集する', edit_income_value_path(item) %>
+    </div>
+  </div>
+  <div class="">
+    <div class="">
+      <%= link_to '削除する', income_value_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+    </div>
+  </div>
+  
+</div>
+  
