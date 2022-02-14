@@ -1,10 +1,29 @@
 
-日付選択
-<%= link_to '収入データ登録', new_income_value_path %>
+<div class="in-values-cal">
+  <div class="in-values-cal__title">収入カレンダー</div>
+  <div class="">
+    <div class="">
+      <%= link_to '収入データ登録', new_income_value_path %>
+    </div>
+  </div>
 
-<%= month_calendar events: @income_values do |date, income_value| %>
-  <%= date.day %>
-  <% income_value.each do |item| %>
-    <%=link_to item.value, {controller: "records", action: "income_day", start_time: item.start_time} %>
+  <%= month_calendar events: @income_values do |date, income_value| %>
+    <div class="">
+      <div class="">
+        <%=link_to date.day, {controller: "records", action: "income_day", start_time: date} %>
+      </div>
+    </div>
+    <div class="in-values-cal__box">
+      <% sum_values = 0 %>
+      <% income_value.each do |item| %>
+        <% sum_values += item.value %>
+      <% end %>
+      <% unless sum_values == 0 %>
+        <div class="in-values-cal__head">合計</div>
+        <div class="in-values-cal__total">
+            %= sum_values %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>

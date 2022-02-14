@@ -1,6 +1,8 @@
-<h2>フォロワー一覧</h2>
+<div class="follwers">
+<h2 class="follwers__title">フォロワー一覧</h2>
 <% if @user.exists? %>
   <%= render "users/index", users: @user %>
 <% else %>
-  <p>ユーザーはいません</p>
+  <div class="item-nothing">ユーザーはいません</div>
 <% end %>
+</div>

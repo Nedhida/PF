@@ -1,27 +1,27 @@
 
-<div class="fixedcost_values">
+<div class="fixedcost_values-index">
       
-  <div class="fixedcost_values">
-    <div class="fixedcost_values"></div>
-    <div class="fixedcost_values">
-      項目<%= item.fixedcost.name %>
-      </div>
+  <div class="fixedcost_values-index__box">
+    <div class="fixedcost_values-index__head">項目</div>
+    <div class="fixedcost_values-index__item">
+      <%= item.fixedcost.name %>
+    </div>
   </div>
-  <div class="fixedcost_values">
-    <div class="fixedcost_values"></div>
-    <div class="fixedcost_values">
+  <div class="fixedcost_values-index__box">
+    <div class="fixedcost_values-index__head">内容</div>
+    <div class="fixedcost_values-index__content">
       内容<%= item.content %>
     </div>
   </div>
-  <div class="fixedcost_values">
-    <div class="fixedcost_values"></div>
-    <div class="fixedcost_values">
+  <div class="fixedcost_values-index__box">
+    <div class="fixedcost_values-index__head">金額</div>
+    <div class="fixedcost_values-index__value">
       金額<%= item.value.to_s(:delimited) %>円
     </div>
   </div>
-  <div class="fixedcost_values">
-    <div class="fixedcost_values"></div>
-    <div class="fixedcost_values">
+  <div class="fixedcost_values-index__box">
+    <div class="fixedcost_values-index__head">備考</div>
+    <div class="fixedcost_values-index__description">
       備考<%= item.description %>
     </div>
   </div>

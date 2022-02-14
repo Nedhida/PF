@@ -1,6 +1,8 @@
-<h3>フォロー一覧</h3>
-<% if @user.exists? %>
-  <%= render "users/index", users: @user %>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+<div class="follwing">
+  <h2 class="follwing__title">フォロー一覧</h2>
+  <% if @user.exists? %>
+    <%= render "users/index", users: @user %>
+  <% else %>
+    <div class="item-nothing">ユーザーはいません</div>
+  <% end %>
+</div>

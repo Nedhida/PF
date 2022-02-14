@@ -9,12 +9,28 @@
   <div class="variablecosts-index__list">
     <% if @variablecosts.present? %>
       <% @variablecosts.each do |item| %>
-        項目名
-        <%= item.name %>
-        備考
-        <%= item.description %>
-        <%= link_to '編集する', edit_variablecost_path(item) %>
-        <%= link_to '削除する', variablecost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+        <div class="variablecosts-index__box">
+          <div class="variablecosts-index__head">項目名</div>
+          <div class="variablecosts-index__name">
+            <%= item.name %>
+          </div>
+        </div>
+        <div class="variablecosts-index__box">
+          <div class="variablecosts-index__head">備考</div>
+          <div class="variablecosts-index__de">
+            <%= item.description %>
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <%= link_to '編集する', edit_variablecost_path(item) %>
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <%= link_to '削除する', variablecost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+          </div>
+        </div>
       <% end %>
     <% else %>
       <div class="item-nothing">登録されている項目はありません</div>

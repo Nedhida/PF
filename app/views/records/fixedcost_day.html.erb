@@ -1,15 +1,35 @@
-記録
-<%= link_to '固定費データ登録', new_fixedcost_value_path %>
-<%= render 'fixedcost_values/day_select' %>
+<div class="records-fix-day">
 
-<% if @fixedcost_values.present? %>
-  <% @fixedcost_values.each do |item| %>
+  <div class="records-fix-day__title">1日の固定費一覧</div>
+  <div class="">
+    <div class="">
+      <%= link_to '固定費データ登録', new_fixedcost_value_path %>
+    </div>
+  </div>
+  
+  <%= render 'fixedcost_values/day_select' %>
+  
+  <div class="records-fix-day__box">
+    <div class="records-fix-day__head">日付</div>
+    <div class="records-fix-day__start-time">
+      <%= @start_time %>
+    </div>
+  </div>
+  <% if @fixedcost_values.present? %>
+    <% @fixedcost_values.each do |item| %>
 
-    <%= render 'fixedcost_values/index', item: item %>
+      <%= render 'fixedcost_values/index', item: item %>
 
- <% end %>
-  合計
-  <%= @fixedcost_values_total %> 円
-<% else %>
-  登録がありません
-<% end %>
+  <% end %>
+    <div class="records-fix-day__box">
+      <div class="records-fix-day__head">金額</div>
+      <div class="records-fix-day__value">
+        <%= @fixedcost_value_total %> 円
+      </div>
+    </div>
+
+  <% else %>
+    <div class="item-nothing">登録がありません</div>
+  <% end %>
+
+</div>

@@ -1,10 +1,29 @@
-日付選択
-<%= link_to '支出データ登録', new_variablecost_value_path %>
+<div class="var-values-cal">
+  <div class="var-values-cal__title">支出カレンダー</div>
+    <div class="">
+      <div class="">
+        <%= link_to '支出データ登録', new_variablecost_value_path %>
+      </div>
+    </div>
 
+  <%= month_calendar events: @variablecost_values do |date, variablecost_value| %>
+    <div class="">
+      <div class="">
+        <%=link_to date.day, {controller: "records", action: "variablecost_day", start_time: date} %>
+      </div>
+    </div>
+    <div class="var-values-cal__box">
+      <% sum_values = 0 %>
+      <% variablecost_value.each do |item| %>
+        <% sum_values += item.value %>
+      <% end %>
+      <% unless sum_values == 0 %>
+        <div class="var-values-cal__head">合計</div>
+        <div class="var-values-cal__total">
+          <%= sum_values %>
+        </div>
+      <% end %>
+    </div>
 
-<%= month_calendar events: @variablecost_values do |date, variablecost_value| %>
-  <%= date.day %>
-  <% variablecost_value.each do |item| %>
-    <%=link_to item.value, {controller: "records", action: "variablecost_day", start_time: item.start_time} %>
   <% end %>
-<% end %>
+</div>

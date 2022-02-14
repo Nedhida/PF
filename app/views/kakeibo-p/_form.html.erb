@@ -1,4 +1,14 @@
-項目名
-  <%= f.text_field :name %>
-  備考
-  <%= f.text_field :description %>
+<div class="kakeibo-form">
+  <div class="kakeibo-form__box">
+    <div class="kakeibo-form__head">項目名</div>
+    <div class="kakeibo-form__name">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="kakeibo-form__box">
+    <div class="kakeibo-form__head">備考</div>
+      <div class="kakeibo-form__descrip">
+      <%= f.text_field :description %>
+    </div>
+  </div>
+</div>

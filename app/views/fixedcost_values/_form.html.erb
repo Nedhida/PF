@@ -1,47 +1,46 @@
-<div class="fixedcost_values">
-  
-  <div class="fixedcost_values">
-    <div class="fixedcost_values"></div>
-    <div class="fixedcost_values">
+<div class="fixedcost_values-form">
+
+  <div class="fixedcost_values-form__box">
+    <div class="fixedcost_values-form__head">日付</div>
+    <div class="fixedcost_values-form__start_time">
       <%= f.date_field :start_time %>
     </div>
   </div>
   <% unless @fixedcosts.present? %>
-    <div class="fixedcost_values">
-      <div class="fixedcost_values"></div>
-      <div class="fixedcost_values">
+    <div class="fixedcost_values-form__box">
+      <div class="fixedcost_values-form__item">
         <%= link_to '項目を設定', fixedcosts_path(current_user) %>
       </div>
     </div>
   <% else %>
-    <div class="fixedcost_values">
-      <div class="fixedcost_values"></div>
-      <div class="fixedcost_values">
+    <div class="fixedcost_values-form__box">
+      <div class="fixedcost_values-form__head">項目</div>
+      <div class="fixedcost_values-form__item">
         <%= f.collection_select(:fixedcost_id, fixedcosts.all, :id, :name, prompt: "選択してください") %>
       </div>
     </div>
   <% end %>
-  <div class="fixedcost_values">
-    <div class="fixedcost_values"></div>
-    <div class="fixedcost_values">
-      内容<%= f.text_field :content %>
+  <div class="fixedcost_values-form__box">
+    <div class="fixedcost_values-form__head">内容</div>
+    <div class="fixedcost_values-form__content">
+      <%= f.text_field :content %>
     </div>
   </div>
-  <div class="fixedcost_values">
-    <div class="fixedcost_values"></div>
-    <div class="fixedcost_values">
-      金額<%= f.text_field :value %>
+  <div class="fixedcost_values-form__box">
+    <div class="fixedcost_values-form__head">金額</div>
+    <div class="fixedcost_values-form__value">
+      <%= f.text_field :value %>
     </div>
   </div>
-  <div class="fixedcost_values">
-    <div class="fixedcost_values"></div>
-    <div class="fixedcost_values">
-      備考<%= f.text_field :description %>
+  <div class="fixedcost_values-form__box">
+    <div class="fixedcost_values-form__head">備考</div>
+    <div class="fixedcost_values-form__description">
+      <%= f.text_field :description %>
     </div>
   </div>
   <div class="">
     <div class="">
-<%= f.submit %>
+      <%= f.submit %>
     </div>
   </div>
 

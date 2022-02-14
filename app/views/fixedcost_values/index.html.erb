@@ -1,13 +1,27 @@
+<div class="fix-values-cal">
+  <div class="fix-values-cal__title">収入カレンダー</div>
+  <div class="">
+    <div class="">
+      <%= link_to '固定費データ登録', new_fixedcost_value_path %>
+    </div>
+  </div>
 
-日付選択
-<%= link_to '固定費データ登録', new_fixedcost_value_path %>
-
-<% @fixedcost_values.each do |item| %>
-  <%= render 'index', item: item %>
-<% end %>
-<%= month_calendar events: @fixedcost_values do |date, fixedcost_value| %>
-  <%= date.day %>
-  <% fixedcost_value.each do |item| %>
-    <%=link_to item.value, {controller: "records", action: "fixedcost_day", start_time: item.start_time} %>
+  <%= month_calendar events: @fixedcost_values do |date, fixedcost_value| %>
+    <div class="">
+      <div class="">
+        <%=link_to date.day, {controller: "records", action: "fixedcost_day", start_time: date} %>
+      </div>
+    </div>
+    <div class="fix-values-cal__box">
+      <% sum_values = 0 %>
+      <% fixedcost_value.each do |item| %>
+        <% sum_values += item.value %>
+      <% end %>
+      <% unless sum_values == 0 %>
+        <div class="fix-values-cal__head">合計</div>
+        <div class="fix-values-cal__total">
+            %= sum_values %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
