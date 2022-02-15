@@ -1,20 +1,41 @@
-<div class="fixedcosts-index">
-  <div class="fixedcosts-index__title">固定費項目設定</div>
-  <div class="fixedcosts-index__register">
+<div class="items-index">
+  <h2 class="items-index__title">固定費項目</h2>
+  <%= render 'fixedcost_values/link_new' %>
+  <div class="items-index__register">
+    <div class="items-index__register-title">項目設定</div>
     <%= form_with model: @fixedcost, url:fixedcosts_path, local: true do |f| %>
       <%= render 'kakeibo-p/form', f: f %>
-      <%= f.submit %>
+
     <% end %>
   </div>
-  <div class="fixedcosts-index__list">
+  <div class="items-index__list">
+    <div class="items-index__list-title">項目一覧</div>
     <% if @fixedcosts.present? %>
       <% @fixedcosts.each do |item| %>
-        項目名
-        <%= item.name %>
-        備考
-        <%= item.description %>
-        <%= link_to '編集する', edit_fixedcost_path(item) %>
-        <%= link_to '削除する', fixedcost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+        <div class="items-index__list-content">
+        <div class="items-index__box">
+          <div class="items-index__head">項目名</div>
+          <div class="items-index__name">
+            <%= item.name %>
+          </div>
+        </div>
+        <div class="items-index__box">
+          <div class="items-index__head">備考</div>
+          <% if item.description.present? %>
+            <div class="items-index__de">
+              <%= item.description %>
+            </div>
+          <% else %>
+            <div class="item-nothing">未設定</div>
+          <% end %>
+        </div>
+        <div class="move-page">
+          <%= link_to '編集する', edit_fixedcost_path(item) %>
+        </div>
+        <div class="move-page">
+          <%= link_to '削除する', fixedcost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+        </div>
+      </div>
       <% end %>
     <% else %>
       <div class="item-nothing">登録されている項目はありません</div>

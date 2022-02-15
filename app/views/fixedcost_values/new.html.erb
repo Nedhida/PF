@@ -1,5 +1,14 @@
-<%= form_with model:@fixedcost_value, url: fixedcost_values_path, method: :post, local: true do |f| %>
+<div class="yield-layout">
 
-  <%= render 'form', fixedcosts: @fixedcosts, f: f %>
+  <div class="value-new">
+    <h2 class="value-new">固定費登録フォーム</h2>
+    <div class="links-new">
+      <%= render 'variablecost_values/link_new' %>
+      <%= render 'income_values/link_new' %>
+    </div>
+    <%= form_with model:@fixedcost_value, url: fixedcost_values_path, method: :post, local: true do |f| %>
+      <%= render 'form', fixedcosts: @fixedcosts, f: f %>
+    <% end %>
+  </div>
   
-<% end %>
+</div>

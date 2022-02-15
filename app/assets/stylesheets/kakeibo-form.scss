@@ -1,0 +1,10 @@
+.kakeibo-form {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  &__head {
+    font-weight: bold;
+    color: #696969;
+  }
+}

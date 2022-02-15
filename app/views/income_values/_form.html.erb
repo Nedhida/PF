@@ -1,50 +1,48 @@
-<div class="income_values-form">
-  
-  <div class="income_values-form__box">
-    <div class="income_values-form__head">日付</div>
-    <div class="income_values-form__date">
-      <%= f.date_field :start_time %>
-    </div>
-  </div>
-  
-  <% unless @incomes.present? %>
-
-    <div class="income_values-form__box">
-      <div class="income_values-form__item">
-        <%= link_to '項目を設定', incomes_path(current_user) %>
+<div class="value-form">
+  <div class="value-form__contents">
+    <div class="value-form__box">
+      <div class="value-form__head">日付</div>
+      <div class="value-form__date">
+        <%= f.date_field :start_time %>
       </div>
     </div>
-  <% else %>
-    <div class="income_values-form__box">
-      <div class="income_values-form__head">項目を選択</div>
-      <div class="income_values-form__item">
-        <%= f.collection_select(:income_id, incomes.all, :id, :name, prompt: "選択してください") %>
+    <% unless @incomes.present? %>
+      <div class="value-form__box">
+        <div class="value-form__item-set">
+          <%= link_to '項目を設定', incomes_path(current_user) %>
+        </div>
+      </div>
+    <% else %>
+      <div class="value-form__box">
+        <div class="value-form__head">項目選択</div>
+        <div class="value-form__item">
+          <%= f.collection_select(:income_id, incomes.all, :id, :name, prompt: "選択してください") %>
+        </div>
+        <div class="value-form__item">
+          <%= link_to '項目を追加', incomes_path(current_user) %>
+        </div>
+      </div>
+    <% end %>
+    <div class="value-form__box">
+      <div class="value-form__head">内容</div>
+      <div class="value-form__content">
+        <%= f.text_field :content %>
       </div>
     </div>
-
-  <% end %>
-  <div class="income_values-form__box">
-    <div class="income_values-form__head">内容</div>
-    <div class="income_values-form__content">
-      <%= f.text_field :content %>
+    <div class="value-form__box">
+      <div class="value-form__head">金額</div>
+      <div class="value-form__value">
+        <%= f.text_field :value %>
+      </div>
+    </div>
+    <div class="value-form__box">
+      <div class="value-form__head">備考</div>
+      <div class="value-form__discription">
+        <%= f.text_field :description %>
+      </div>
     </div>
   </div>
-  <div class="income_values-form__box">
-    <div class="income_values-form__head">金額</div>
-    <div class="income_values-form__value">
-      <%= f.text_field :value %>
-    </div>
+  <div class="move-page">
+    <%= f.submit %>
   </div>
-  <div class="income_values-form__box">
-    <div class="income_values-form__head">備考</div>
-    <div class="income_values-form__description">
-      <%= f.text_field :description %>
-    </div>
-  </div>
-  <div class="">
-    <div class="">
-      <%= f.submit %>
-    </div>
-  </div>
-
 </div>

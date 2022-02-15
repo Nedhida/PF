@@ -1,18 +1,16 @@
 .move-page {
   display: flex;
   justify-content: space-around;
-
-  &__sign-up {
-    margin-top: 10px;
-  }
-
-  &__log-in{
-    margin-top: 10px;
-  }
+  margin-top: 10px;
 
   &__show {
     position: absolute;
     bottom: 0;
     margin: 3px;
   }
+}
+
+.links-new {
+  display: flex;
+  justify-content: space-around;
 }

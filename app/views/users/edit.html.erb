@@ -10,9 +10,7 @@
       </div>
       <div class="user-edit__box">
         <div class="user-edit__h-image">プロフィール画像</div>
-        <div class="user-edit__l-image">
-          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-        </div>
+        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class:"user-edit__l-image" %>
       </div>
       <div class="user-edit__box">
         <div class="user-edit__h-introduction">紹介文</div>

@@ -1,9 +1,8 @@
-<div class="fixedcosts-edit">
-  <div class="fixedcosts-edit__title">固定費項目編集</div>
-  <div class="fixedcosts-edit__register">
+<div class="item-edit">
+  <h2 class="item-edit__title">固定費項目編集</h2>
+  <div class="item-edit__register">
     <%= form_with model: @fixedcost, url:fixedcost_path, local: true do |f| %>
       <%= render 'kakeibo-p/form', f: f %>
-      <%= f.submit %>
     <% end %>
   </div>
 </div>
