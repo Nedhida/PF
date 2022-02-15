@@ -3,58 +3,77 @@
 
     <div class="post-show">
       <h2 class="post-show__title">投稿の詳細</h2>
-      <div class="post-show__content">
-        <div class="post-show__box">
-          <div class="post-show__head">日付：</div>
-          <div class="post-show__l-date">
-            <%= @variablecost_value.start_time.strftime('%Y/%m/%d') %>
+      <div class="post-show__content1">
+
+
+        <div class="post-show__item">
+          <div class="post-show__box">
+            <div class="post-show__head">日付：</div>
+            <div class="post-show__l-date">
+              <%= @variablecost_value.start_time.strftime('%Y/%m/%d') %>
+            </div>
           </div>
-        </div>
-        <div class="post-show__box">
-          <div class="post-show__head">項目：</div>
-          <div class="post-show__l-name">
-            <%= @variablecost_value.variablecost.name %>
+          <div class="post-show__box">
+            <div class="post-show__head">項目：</div>
+            <div class="post-show__l-name">
+              <%= @variablecost_value.variablecost.name %>
+            </div>
           </div>
-        </div>
-        <div class="post-show__box">
-          <div class="post-show__head">内容：</div>
-          <div class="post-show__l-content">
-            <%= @variablecost_value.content %>
+          <div class="post-show__box">
+            <div class="post-show__head">内容：</div>
+            <div class="post-show__l-content">
+              <% if @variablecost_value.content.present? %>
+                <%= @variablecost_value.content %>
+              <% else %>
+                <div class="item-nothing">ありません</div>
+              <% end %>
+            </div>
           </div>
-        </div>
-        <div class="post-show__box">
-          <div class="post-show__head">金額：</div>
-          <div class="post-show__l-value">
-            <%= @variablecost_value.value %>
+          <div class="post-show__box">
+            <div class="post-show__head">金額：</div>
+            <div class="post-show__l-value">
+              <%= @variablecost_value.value %>
+            </div>
           </div>
-        </div>
-        <div class="post-show__box">
-          <div class="post-show__head">備考：</div>
-          <div class="post-show__l-description">
-            <%= @variablecost_value.description %>
+          <div class="post-show__box">
+            <div class="post-show__head">備考：</div>
+            <div class="post-show__l-description">
+              <% if @variablecost_value.description.present? %>
+                <%= @variablecost_value.description %>
+              <% else %>
+                <div class="item-nothing">ありません</div>
+              <% end %>
+            </div>
+          </div>
+          <% if @variablecost_value.user_id == current_user.id %>
+            <div class="move-page">
+              <%= link_to '編集する', edit_variablecost_value_path(@variablecost_value)%>
+            </div>
+            <div class="move-page">
+              <%= link_to '削除する', variablecost_value_path(@variablecost_value), method: :delete, data: { confirm: '本当に消しますか？' }%>
+            </div>
+          <% end %>
+          <div class="post-show__box" id="favorite_buttons_<%=@variablecost_value.id %>">
+            <%= render 'favorites/favorite', post: @variablecost_value %>
           </div>
         </div>
 
-        <div class="post-show__box" id="favorite_buttons_<%=@variablecost_value.id %>">
-          <%= render 'favorites/favorite', post: @variablecost_value %>
-        </div>
-        <div class="post-show__box" id="comments_count">
-          <%= render 'comments/count', post: @variablecost_value %>
-        </div>
-        <div class="post-show__box" id="comments_form">
-          <%= render 'comments/form', post: @variablecost_value, comment: @comment %>
-        </div>
-        <div class="post-show__box" id="comments_area">
-          <%= render 'comments/comments', post: @variablecost_value %>
-        </div>
-        <% if @variablecost_value.user_id == current_user.id %>
-          <div class="move-page">
-            <%= link_to '編集する', edit_variablecost_value_path(@variablecost_value)%>
+        <div class="post-show__item">
+          <div class="post-show__box2">
+            <div class="post-show__head">コメント</div>
+            <div id="comments_form">
+              <%= render 'comments/form', post: @variablecost_value, comment: @comment %>
+            </div>
           </div>
-          <div class="move-page">
-            <%= link_to '削除する', variablecost_value_path(@variablecost_value), method: :delete, data: { confirm: '本当に消しますか？' }%>
+          <div class="post-show__box" id="comments_count">
+            <%= render 'comments/count', post: @variablecost_value %>
           </div>
-        <% end %>
+          <div class="post-show__box2" id="comments_area">
+            <%= render 'comments/comments', post: @variablecost_value %>
+          </div>
+        </div>
+
+
       </div>
 
     </div>

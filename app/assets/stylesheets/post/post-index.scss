@@ -1,13 +1,59 @@
 .post-index {
   margin: 30px;
   width: 700px;
-  
+
   &__content {
-    display: flex;
-    justify-content: space-between;
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
   }
-  
+
+  &__content:before, &__content:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+  }
+
+  &__content:before {left: 10px;}
+  &__content:after {right: 10px;}
+
+  &__start-time {
+    display: block;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__block2 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width : 80%;
+  }
+
   &__profile-image {
     display: block;
+  }
+
+  &__box {
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 0 10px;
+    margin: 3px 0;
+  }
+
+  &__head {
+    font-weight: bold;
+    border-bottom: solid 1px #ddd;
+    color: #696969;
   }
 }

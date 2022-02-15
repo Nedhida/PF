@@ -2,7 +2,73 @@
   margin: 30px;
   width: 700px;
 
+  &__content1 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-color: #000;
+  }
+
+  &__content1:before, &__content1:after {
+    background-color: #000;
+  }
+
+  &__content1, &__content2 {
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px ;
+    border-bottom: solid 2px ;
+  }
+
+  &__content1:before, &__content1:after,
+  &__content2:before, &__content2:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+  }
+
+  &__content1:before, &__content2:before {left: 10px;}
+  &__content1:after, &__content2:after {right: 10px;}
+
+  &__content2 {
+    border-color: #808080;
+  }
+
+  &__content2:before, &__content2:after {
+    background-color: #808080;
+  }
+
   &__box {
     display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 0 10px;
+    margin: 3px 0;
   }
+
+  &__head {
+    font-weight: bold;
+    color: #696969;
+  }
+
+  &__new-comment textarea {
+    height:50px;
+  }
+
+  &__acount {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: solid 1px #ddd;
+  }
+
+  &__comment-body {
+    margin-left: 15px;
+  }
+
 }

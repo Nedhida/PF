@@ -11,5 +11,5 @@ class PostsController < ApplicationController
     @user = current_user
   end
 
-  
+
 end

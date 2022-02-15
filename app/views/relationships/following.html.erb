@@ -1,8 +1,14 @@
-<div class="follwing">
-  <h2 class="follwing__title">フォロー一覧</h2>
-  <% if @user.exists? %>
-    <%= render "users/index", users: @user %>
-  <% else %>
-    <div class="item-nothing">ユーザーはいません</div>
-  <% end %>
+<div class="yield-layout">
+
+  <%= render 'info', user: current_user %>
+
+  <div class="follwing">
+    <h2 class="follwing__title">フォロー一覧</h2>
+    <% if @user.exists? %>
+      <%= render "users/index", users: @user %>
+    <% else %>
+      <div class="item-nothing">ユーザーはいません</div>
+    <% end %>
+  </div>
+
 </div>
