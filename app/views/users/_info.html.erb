@@ -4,7 +4,7 @@
     <%= attachment_image_tag(user, :profile_image, fallback: "user_no_image.jpg", size:'60x60')%>
   </div>
   <div class="user-info__name">
-    <div class="user-info__h-name">
+    <div class="user-info__head">
       ユーザー名
     </div>
     <div class="user-info__l-name">
@@ -12,22 +12,26 @@
     </div>
   </div>
   <div class="user-info__introduction">
-    <div class="user-info__h-introduction">
+    <div class="user-info__head">
       紹介文
     </div>
     <div class="user-info__l-introduction">
-      <%= user.introduction %>
+      <% if user.introduction.present? %>
+        <%= user.introduction %>
+      <% else %>
+        <div class="item-nothing">未設定</div>
+      <% end %>
     </div>
   </div>
   <div class="user-info__follows">
-    フォロー数:
-    <%= link_to following_user_path(user) do %>
+    <div class="user-info__h-count">フォロー数：</div>
+    <%= link_to following_user_path(user), class:"user-info__count" do %>
       <%= user.following.count %>
     <% end %>
   </div>
   <div class="user-info__followers">
-    フォロワー数:
-    <%= link_to followers_user_path(user) do %>
+    <div class="user-info__h-count">フォロワー数：</div>
+    <%= link_to followers_user_path(user), class:"user-info__count" do %>
       <%= user.followers.count %>
     <% end %>
   </div>

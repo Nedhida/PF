@@ -11,9 +11,13 @@
             <%= user.name %>
           </div>
         </div>
-        <div id="follow_buttons_<%=user.id %>" class="user_index__follow">
+        <div class="user_index__follow">
           <% unless current_user == user %>
-            <%= render 'relationships/follow',user: user %>
+            <div id="follow_buttons_<%=user.id %>">
+              <%= render 'relationships/follow',user: user %>
+            </div>
+          <% else %>
+            私
           <% end %>
         </div>
         <div class="move-page">

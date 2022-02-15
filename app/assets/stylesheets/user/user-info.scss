@@ -6,12 +6,34 @@
     display: flex;
   }
 
+  &__head {
+    font-weight: bold;
+    color: #696969;
+  }
+
   &__l-name {
     flex-grow: 2;
     text-align: center;
   }
 
   &__l-introduction {
+    margin: 0 20px;
+  }
+
+  &__l-name, &__l-introduction {
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 0 10px;
+    margin: 3px 0;
+  }
+
+  &__follows, &__followers {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__count {
     margin: 0 20px;
   }
 }
