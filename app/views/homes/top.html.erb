@@ -1,13 +1,25 @@
-<h1>私の家計簿</h1>
-<% if user_signed_in? %>
-<div>
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<div class="yield-layout">
+
+  <div class="top">
+    <h1 class="top__title">私の家計簿</h1>
+    <div class="logo">
+      <%= image_tag 'pig_white.png', class: 'logo__main' %>
+    </div>
+
+    <% if user_signed_in? %>
+    <div class="move-page">
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    </div>
+    <% else %>
+    <div class="move-page">
+      <div class="move-page__sign-up">
+        <%= link_to 'サインアップ', new_user_registration_path %>
+      </div>
+      <div class="move-page__log-in">
+        <%= link_to 'ログイン', new_user_session_path %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
 </div>
-<% else %>
-<div>
-  <%= link_to 'サインアップ', new_user_registration_path %>
-</div>
-<div>
-  <%= link_to 'ログイン', new_user_session_path %>
-</div>
-<% end %>

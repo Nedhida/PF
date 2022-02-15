@@ -1,4 +1,12 @@
 .move-page {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+
+  &__sign-up {
+    margin-top: 10px;
+  }
+
+  &__log-in{
+    margin-top: 10px;
+  }
 }
