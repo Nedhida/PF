@@ -1,16 +1,10 @@
 <div class="records-month">
   <h2 class="records-month__title">月次カレンダー</h2>
-  <div class="links-new">
-    <%= render 'variablecost_values/link_new' %>
-    <%= render 'fixedcost_values/link_new' %>
-    <%= render 'income_values/link_new' %>
-  </div>
+
+  <%= render 'kakeibo-p/links' %>
 
 <%= month_calendar events: @all_values do |date, all_value| %>
-    <div class="move-page">
-<!--     その日の登録一覧へ   -->
-      <%=link_to date.day, {controller: "records", action: "day", start_time: date} %>
-    </div>
+  <%=date.day %>
   <div class="records-month__box">
 <!-- 支出、固定費、収入の合計 -->
     <% sum_all_values = 0 %>
@@ -26,7 +20,9 @@
     <% unless sum_all_values == 0 %>
       <div class="records-month__head">合計</div>
       <div class="records-month__total">
-        <%= sum_all_values %>
+        <div class="move-page">
+          <%= link_to sum_all_values, {controller: "records", action: "day", start_time: date} %>
+        </div>
       </div>
     <% end %>
   </div>

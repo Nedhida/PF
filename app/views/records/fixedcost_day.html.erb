@@ -1,35 +1,48 @@
-<div class="records-fix-day">
+<div class="yield-layout">
 
-  <div class="records-fix-day__title">1日の固定費一覧</div>
-  <div class="">
-    <div class="">
-      <%= link_to '固定費データ登録', new_fixedcost_value_path %>
-    </div>
-  </div>
+  <div class="days">
+    <h2 class="days__title">日ごとの固定費一覧</h2>
 
-  <%= render 'fixedcost_values/day_select' %>
+    <%= render 'kakeibo-p/links' %>
 
-  <div class="records-fix-day__box">
-    <div class="records-fix-day__head">日付</div>
-    <div class="records-fix-day__start-time">
-      <%= @start_time %>
-    </div>
-  </div>
-  <% if @fixedcost_values.present? %>
-    <% @fixedcost_values.each do |item| %>
+    <%= form_with url: {controller: 'records', action: 'fixedcost_day'}, method: :get, local: true do |f| %>
+      <%= render 'kakeibo-p/day_select', f: f %>
+    <% end %>
 
-      <%= render 'fixedcost_values/show', item: item %>
-
-  <% end %>
-    <div class="records-fix-day__box">
-      <div class="records-fix-day__head">金額</div>
-      <div class="records-fix-day__value">
-        <%= @fixedcost_value_total %> 円
+    <div class="days__content1">
+      <% if @start_time.present? %>
+      <div class="days__box">
+        <div class="days__head">日付</div>
+        <div class="days__start-time">
+          <%= @start_time %>
+        </div>
       </div>
+      <% end %>
+      <% unless @fixedcost_value_total == 0 %>
+        <div class="days__box">
+          <div class="days__head">合計</div>
+          <div class="days__value">
+            <%= @fixedcost_value_total %> 円
+          </div>
+        </div>
+      <% end %>
     </div>
 
-  <% else %>
-    <div class="item-nothing">登録がありません</div>
-  <% end %>
+    <% if @fixedcost_values.present? %>
+      <% @fixedcost_values.each do |item| %>
+        <div class="days__content2">
+
+          <%= render 'fixedcost_values/show', item: item %>
+
+          <div class="move-page">
+            <%= link_to '詳細', fixedcost_value_path(item), class: 'move-page__show' %>
+          </div>
+        </div>
+      <% end %>
+
+    <% else %>
+      <div class="item-nothing">登録がありません</div>
+    <% end %>
+  </div>
 
 </div>

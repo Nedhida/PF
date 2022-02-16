@@ -1,0 +1,25 @@
+<details>
+　  <summary>登録各種</summary>
+    <div class="links-new">
+      <%= render 'variablecost_values/link_new' %>
+      <%= render 'fixedcost_values/link_new' %>
+      <%= render 'income_values/link_new' %>
+    </div>
+  </details>
+  <details>
+　  <summary>登録別カレンダー</summary>
+    <div class="links-new">
+      <div class="move-page">
+        <%= link_to '月次カレンダー', month_records_path(current_user) %>
+      </div>
+      <div class="move-page">
+        <%= link_to '支出カレンダー', variablecost_values_path %>
+      </div>
+      <div class="move-page">
+        <%= link_to '固定費カレンダー', fixedcost_values_path %>
+      </div>
+      <div class="move-page">
+        <%= link_to '収入カレンダー', income_values_path %>
+      </div>
+    </div>
+  </details>

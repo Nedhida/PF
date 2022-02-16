@@ -1,26 +1,12 @@
+<div class="yield-layout">
+
   <div class="records-day">
     <h2 class="records-day__title">1日の登録一覧</h2>
 
-    <div class="links-new">
-      <%= render 'variablecost_values/link_new' %>
-      <%= render 'fixedcost_values/link_new' %>
-      <%= render 'income_values/link_new' %>
-    </div>
+    <%= render 'kakeibo-p/links' %>
 
     <%= form_with url: {controller: 'records', action: 'day'}, method: :get, local: true do |f| %>
-      <div class="records-day__select">
-
-        <div class="records-day__box">
-          <div class="records-day__head">日付選択</div>
-          <div class="records-day__date">
-            <%= f.date_field "start_time" %>
-          </div>
-        </div>
-        <div class="move-page">
-          <%= f.submit '選択' %>
-        </div>
-
-      </div>
+      <%= render 'kakeibo-p/day_select', f: f %>
     <% end %>
 
   <div class="records-day__content">
@@ -43,6 +29,7 @@
     <% end %>
   </div>
 
+<!-- 　　　　　各項目詳細 　　　　　----------->
 
   <div class="records-day__content">
     <% if @income_values.present? %>
@@ -55,15 +42,17 @@
           </div>
         </div>
         <details>
-　        <summary>詳細</summary>
+　        <summary>内訳</summary>
           <% @income_values.each do |item| %>
             <div class="records-day__item2">
               <%= render 'income_values/show', item: item %>
+              <div class="move-page">
+                <%= link_to '詳細', income_value_path(item), class: 'move-page__show' %>
+              </div>
             </div>
           <% end %>
         </details>
       </div>
-    <% else %>
     <% end %>
 
     <% if @fixedcost_values.present? %>
@@ -76,15 +65,17 @@
           </div>
         </div>
         <details>
-　        <summary>詳細</summary>
+　        <summary>内訳</summary>
           <% @fixedcost_values.each do |item| %>
             <div class="records-day__item2">
               <%= render 'fixedcost_values/show', item: item %>
+              <div class="move-page">
+                <%= link_to '詳細', fixedcost_value_path(item), class: 'move-page__show' %>
+              </div>
             </div>
           <% end %>
         </details>
       </div>
-    <% else %>
     <% end %>
 
 
@@ -98,17 +89,19 @@
           </div>
         </div>
         <details>
-　        <summary>詳細</summary>
+　        <summary>内訳</summary>
           <% @variablecost_values.each do |item| %>
             <div class="records-day__item2">
               <%= render 'variablecost_values/show', item: item %>
+              <div class="move-page">
+                <%= link_to '詳細', variablecost_value_path(item), class: 'move-page__show' %>
+              </div>
             </div>
           <% end %>
         <details>
       </div>
-    <% else %>
     <% end %>
   </div>
-
+</div>
 
 </div>

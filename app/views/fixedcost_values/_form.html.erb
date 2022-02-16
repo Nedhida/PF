@@ -1,4 +1,7 @@
 <div class="value-form">
+  <div class="move-page">
+    <%= link_to '項目を追加', fixedcosts_path(current_user), class: 'move-page__shrink' %>
+  </div>
   <div class="value-form__contents">
     <div class="value-form__box">
       <div class="value-form__head">日付</div>
@@ -17,9 +20,6 @@
         <div class="value-form__head">項目選択</div>
         <div class="value-form__item">
           <%= f.collection_select(:fixedcost_id, fixedcosts.all, :id, :name, prompt: "選択してください") %>
-        </div>
-        <div class="value-form__item">
-          <%= link_to '項目を追加', fixedcosts_path(current_user) %>
         </div>
       </div>
     <% end %>

@@ -1,34 +1,48 @@
-<div class="records-var-day">
+<div class="yield-layout">
 
-  <div class="records-var-day__title">1日の支出一覧</div>
-  <div class="">
-    <div class="">
-      <%= link_to '支出データ登録', new_variablecost_value_path %>
+  <div class="days">
+    <h2 class="days__title">日ごとの支出一覧</h2>
+
+    <%= render 'kakeibo-p/links' %>
+
+    <%= form_with url: {controller: 'records', action: 'variablecost_day'}, method: :get, local: true do |f| %>
+      <%= render 'kakeibo-p/day_select', f: f %>
+    <% end %>
+
+    <div class="days__content1">
+      <% if @start_time.present? %>
+      <div class="days__box">
+        <div class="days__head">日付</div>
+        <div class="days__start-time">
+          <%= @start_time %>
+        </div>
+      </div>
+      <% end %>
+      <% unless @variablecost_value_total == 0 %>
+        <div class="days__box">
+          <div class="days__head">合計</div>
+          <div class="days__value">
+            <%= @variablecost_value_total %> 円
+          </div>
+        </div>
+      <% end %>
     </div>
+
+    <% if @variablecost_values.present? %>
+      <% @variablecost_values.each do |item| %>
+        <div class="days__content2">
+
+          <%= render 'variablecost_values/show', item: item %>
+
+          <div class="move-page">
+            <%= link_to '詳細', variablecost_value_path(item), class: 'move-page__show' %>
+          </div>
+        </div>
+      <% end %>
+
+    <% else %>
+      <div class="item-nothing">登録がありません</div>
+    <% end %>
   </div>
-
-  <%= render 'variablecost_values/day_select' %>
-
-  <div class="records-var-day__box">
-      <div class="records-var-day__head">日付</div>
-      <div class="records-var-day__start-time">
-        <%= @start_time %>
-      </div>
-    </div>
-  <% if @variablecost_values.present? %>
-    <% @variablecost_values.each do |item| %>
-
-      <%= render 'variablecost_values/show', item: item %>
-
-   <% end %>
-    <div class="records-var-day__box">
-      <div class="records-var-day__head">金額</div>
-      <div class="records-var-day__value">
-        <%= @variablecost_value_total %> 円
-      </div>
-    </div>
-  <% else %>
-    <div class="item-nothing">登録がありません</div>
-  <% end %>
 
 </div>

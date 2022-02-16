@@ -6,6 +6,7 @@
     flex-wrap: wrap;
  }
 
+
  &__item2 {
     justify-content: space-around;
  }
@@ -36,12 +37,20 @@
   &__item2:before {left: 10px;}
   &__item2:after {right: 10px;}
 
+  &__box1 {
+    margin: 0 30px;
+  }
+
   &__box2 {
     align-self: flex-start;
     width: 300px;
     margin: 20px;
     padding: 5px;
     border: solid 0.3px #ddd;
+  }
+
+  &__box3 {
+    display: flex;
   }
 
   &__head {
@@ -56,4 +65,9 @@
     background-color: #f5f5f5;
     padding: 5px;
   }
+
+  &__date {
+    margin: 10px 20px 0 10px;
+  }
+
 }

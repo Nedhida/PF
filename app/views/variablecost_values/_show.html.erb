@@ -31,3 +31,12 @@
       <% end %>
     </div>
   </div>
+
+  <div class="values-show__box">
+    <div class="values-show__head">公開</div>
+    <% if item.privacy=="1" %>
+      <div class="values-show__obj">公開中</div>
+    <% else %>
+      <div class="values-show__obj">非公開</div>
+    <% end %>
+  </div>

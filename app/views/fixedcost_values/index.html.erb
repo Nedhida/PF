@@ -1,26 +1,21 @@
-<div class="fix-values-cal">
-  <div class="fix-values-cal__title">支出カレンダー</div>
-  <div class="">
-    <div class="">
-      <%= link_to '固定費データ登録', new_fixedcost_value_path %>
-    </div>
-  </div>
+<div class="records-month">
+  <h2 class="records-month__title">固定費カレンダー</h2>
+
+  <%= render 'kakeibo-p/links' %>
 
   <%= month_calendar events: @fixedcost_values do |date, fixedcost_value| %>
-    <div class="">
-      <div class="">
-        <%=link_to date.day, {controller: "records", action: "fixedcost_day", start_time: date} %>
-      </div>
-    </div>
-    <div class="fix-values-cal__box">
+    <%=date.day %>
+    <div class="records-month__box">
       <% sum_values = 0 %>
       <% fixedcost_value.each do |item| %>
         <% sum_values += item.value %>
       <% end %>
       <% unless sum_values == 0 %>
-        <div class="fix-values-cal__head">合計</div>
-        <div class="fix-values-cal__total">
-            <%= sum_values %>
+        <div class="records-month__head">合計</div>
+        <div class="records-month__total">
+          <div class="move-page">
+            <%= link_to sum_values, {controller: "records", action: "fixedcost_day", start_time: date} %>
+          </div>
         </div>
       <% end %>
     </div>
