@@ -16,10 +16,8 @@
             <%= f.date_field "start_time" %>
           </div>
         </div>
-        <div class="">
-          <div class="">
-            <%= f.submit %>
-          </div>
+        <div class="move-page">
+          <%= f.submit '選択' %>
         </div>
 
       </div>
@@ -36,7 +34,7 @@
     <% unless @day_total == 0 %>
       <div class="records-day__box1">
         <div class="records-day__head">収支合計</div>
-        <div class="records-day__total">
+        <div class="records-day__all-total">
           <%= @day_total %>円
         </div>
       </div>
@@ -51,7 +49,7 @@
       <div class="records-day__box2">
         <div class="records-day__item1">
           <div class="records-day__head">収入記録</div>
-          <div class="records-day__in-total">
+          <div class="records-day__total">
             <div class="records-day__head">収入合計</div>
             <%= @income_value_total %> 円
           </div>
@@ -72,7 +70,7 @@
       <div class="records-day__box2">
         <div class="records-day__item1">
           <div class="records-day__head">固定費記録</div>
-          <div class="records-day__fix-total">
+          <div class="records-day__total">
             <div class="records-day__head">固定費合計</div>
             <%= @fixedcost_value_total %> 円
           </div>
@@ -94,7 +92,7 @@
       <div class="records-day__box2">
         <div class="records-day__item1">
           <div class="records-day__head">支出記録</div>
-          <div class="records-day__var-total">
+          <div class="records-day__total">
             <div class="records-day__head">支出合計</div>
             <%= @variablecost_value_total %> 円
           </div>
