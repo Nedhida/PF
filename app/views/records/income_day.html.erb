@@ -18,7 +18,7 @@
   <% if @income_values.present? %>
     <% @income_values.each do |item| %>
     
-      <%= render 'income_values/index', item: item %>
+      <%= render 'income_values/show', item: item %>
   
    <% end %>
     <div class="records-in-day__box">

@@ -6,9 +6,9 @@
       <%= link_to '固定費データ登録', new_fixedcost_value_path %>
     </div>
   </div>
-  
+
   <%= render 'fixedcost_values/day_select' %>
-  
+
   <div class="records-fix-day__box">
     <div class="records-fix-day__head">日付</div>
     <div class="records-fix-day__start-time">
@@ -18,7 +18,7 @@
   <% if @fixedcost_values.present? %>
     <% @fixedcost_values.each do |item| %>
 
-      <%= render 'fixedcost_values/index', item: item %>
+      <%= render 'fixedcost_values/show', item: item %>
 
   <% end %>
     <div class="records-fix-day__box">

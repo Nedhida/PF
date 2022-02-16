@@ -1,0 +1,37 @@
+.records-day{
+
+ &__content, &__item2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+ }
+
+  &__item1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+ &__item2 {
+    margin: 1em 0 2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+  }
+
+  &__item2:before, &__item2:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+  }
+
+  &__item2:before {left: 10px;}
+  &__item2:after {right: 10px;}
+
+
+}

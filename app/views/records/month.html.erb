@@ -7,12 +7,10 @@
   </div>
 
 <%= month_calendar events: @all_values do |date, all_value| %>
-  <div class="">
-    <div class="">
+    <div class="move-page">
 <!--     その日の登録一覧へ   -->
       <%=link_to date.day, {controller: "records", action: "day", start_time: date} %>
     </div>
-  </div>
   <div class="records-month__box">
 <!-- 支出、固定費、収入の合計 -->
     <% sum_all_values = 0 %>

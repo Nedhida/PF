@@ -6,9 +6,9 @@
       <%= link_to '支出データ登録', new_variablecost_value_path %>
     </div>
   </div>
-  
+
   <%= render 'variablecost_values/day_select' %>
-  
+
   <div class="records-var-day__box">
       <div class="records-var-day__head">日付</div>
       <div class="records-var-day__start-time">
@@ -17,9 +17,9 @@
     </div>
   <% if @variablecost_values.present? %>
     <% @variablecost_values.each do |item| %>
-  
-      <%= render 'variablecost_values/index', item: item %>
-  
+
+      <%= render 'variablecost_values/show', item: item %>
+
    <% end %>
     <div class="records-var-day__box">
       <div class="records-var-day__head">金額</div>
@@ -30,5 +30,5 @@
   <% else %>
     <div class="item-nothing">登録がありません</div>
   <% end %>
-  
+
 </div>
