@@ -1,49 +1,26 @@
-<div class="income_values-show">
-  
-  <div class="">
-    <div class="">
-      <%= link_to '収入データ登録', new_income_value_path %>
-    </div>
-  </div>
-  <div class="income_values-show__box">
-    <div class="income_values-show__head">日付</div>
-    <div class="income_values-show__date">
-      <%= @income_value.start_time.strftime('%Y/%m/%d')%>
-    </div>
-  </div>
-  <div class="income_values-show__box">
-    <div class="income_values-show__head">項目</div>
-    <div class="income_values-show__item">
-      <%= @income_value.income.name %>
-    </div>
-  </div>
-  <div class="income_values-show__box">
-    <div class="income_values-show__head">内容</div>
-    <div class="income_values-show__content">
-      <%= @income_value.content %>
-    </div>
-  </div>
-  <div class="income_values-show__box">
-    <div class="income_values-show__head">金額</div>
-    <div class="income_values-show__value">
-      <%= @income_value.value.to_s(:delimited) %>円
-    </div>
-  </div>
-  <div class="income_values-show__box">
-    <div class="income_values-show__head">備考</div>
-    <div class="income_values-show__description">
-      <%= @income_value.description %>
-    </div>
-  </div>
-  <div class="">
-    <div class="">
-      <%= link_to '編集する', edit_income_value_path(@income_value) %>
-    </div>
-  </div>
-  <div class="">
-    <div class="">
-      <%= link_to '削除する', income_value_path(@income_value), method: :delete, data: { confirm: '本当に消しますか？' }%>
-    </div>
-  </div>
+<div class="yield-layout">
 
+  <div class="values-show">
+    <h2 class="values-show__title">収入データ詳細</h2>
+
+    <%= render 'income_values/link_new' %>
+    <div class="values-show__content">
+      <div class="values-show__list">
+        <div class="values-show__box">
+          <div class="values-show__head">日付</div>
+          <div class="values-show__obj">
+            <%= @income_value.start_time.strftime('%Y/%m/%d')%>
+          </div>
+        </div>
+        <%= render 'income_values/show', item: @income_value %>
+      </div>
+      <div class="move-page">
+          <%= link_to '編集する', edit_income_value_path(@income_value) %>
+      </div>
+      <div class="move-page">
+          <%= link_to '削除する', income_value_path(@income_value), method: :delete, data: { confirm: '本当に消しますか？' }%>
+      </div>
+    </div>
+
+  </div>
 </div>

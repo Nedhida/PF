@@ -1,25 +1,16 @@
 <div class="records-day">
 
-  <div class="records-day__title">1日の登録一覧</div>
+  <h2 class="records-day__title">1日の登録一覧</h2>
 
-  <div class="">
-    <div class="">
-      <%= link_to '固定費データ登録', new_fixedcost_value_path %>
-    </div>
+  <div class="links-new">
+    <%= render 'variablecost_values/link_new' %>
+    <%= render 'fixedcost_values/link_new' %>
+    <%= render 'income_values/link_new' %>
   </div>
-  <div class="">
-    <div class="">
-      <%= link_to '収入データ登録', new_income_value_path %>
-    </div>
-  </div>
-  <div class="">
-    <div class="">
-      <%= link_to '支出データ登録', new_variablecost_value_path %>
-    </div>
-  </div>
+
   <%= form_with url: {controller: 'records', action: 'day'}, method: :get, local: true do |f| %>
     <div class="records-day__select">
-      
+
       <div class="records-day__box">
         <div class="records-day__head">日付選択</div>
         <div class="records-day__date">
@@ -31,23 +22,23 @@
           <%= f.submit %>
         </div>
       </div>
-      
+
     </div>
   <% end %>
-  
+
   <div class="records-day__box">
     <div class="records-day__head">日付</div>
     <div class="records-day__start-time">
       <%= @start_time %>
     </div>
   </div>
-  
+
   <% if @income_values.present? %>
     <div class="records-day__box">
       <div class="records-day__head">収入記録</div>
       <% @income_values.each do |item| %>
-    
-        <%= render 'income_values/index', item: item %>
+
+        <%= render 'income_values/show', item: item %>
     </div>
   <% end %>
     <div class="records-day__box">
@@ -58,13 +49,13 @@
     </div>
   <% else %>
   <% end %>
-  
+
   <% if @fixedcost_values.present? %>
     <div class="records-day__box">
       <div class="records-day__head">固定費記録</div>
       <% @fixedcost_values.each do |item| %>
-    
-        <%= render 'fixedcost_values/index', item: item %>
+
+        <%= render 'fixedcost_values/show', item: item %>
     </div>
   <% end %>
     <div class="records-day__box">
@@ -75,14 +66,14 @@
     </div>
   <% else %>
   <% end %>
-  
-  
+
+
   <% if @variablecost_values.present? %>
     <div class="records-day__box">
       <div class="records-day__head">支出記録</div>
       <% @variablecost_values.each do |item| %>
-    
-        <%= render 'variablecost_values/index', item: item %>
+
+        <%= render 'variablecost_values/show', item: item %>
     </div>
   <% end %>
     <div class="records-day__box">
@@ -93,9 +84,9 @@
     </div>
   <% else %>
   <% end %>
-  
+
   <% unless @day_total == 0 %>
-    <div class="records-day__box"> 
+    <div class="records-day__box">
       <div class="records-day__head">収支合計</div>
       <div class="records-day__total">
         <%= @day_total %>円

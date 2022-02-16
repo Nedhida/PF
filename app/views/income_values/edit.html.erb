@@ -1,5 +1,12 @@
-<%= form_with model:@income_value, local: true do |f| %>
-
-  <%= render 'form', incomes: @incomes, f: f %>
+<div class="yield-layout">
   
-<% end %>
+  <div class="values-edit">
+    <h2 class="values-edit__title">登録内容編集</h2>
+    <%= form_with model:@income_value, local: true do |f| %>
+      
+      <%= render 'form', incomes: @incomes, f: f %>
+        
+    <% end %>
+  </div>
+    
+  </div>
