@@ -16,7 +16,7 @@ class FixedcostsController < ApplicationController
 	    render 'index'
 	  end
 	end
-	
+
 	def edit
 	end
 
@@ -24,7 +24,7 @@ class FixedcostsController < ApplicationController
 	  if @fixedcost.update(fixedcost_params)
       redirect_to fixedcosts_path, notice: "固定費項目を更新しました。"
     else
-      render 'index'
+      render 'edit'
     end
 
   end
@@ -34,13 +34,13 @@ class FixedcostsController < ApplicationController
 	  @fixedcost.destroy
 	  redirect_to fixedcosts_path, notice: "固定費項目を削除しました"
 	end
-	
+
 	private
 
   def fixedcost_params
     params.require(:fixedcost).permit(:name, :description).merge(user_id: current_user.id)
   end
-  
+
   def ensure_correct_user
     @fixedcost = Fixedcost.find(params[:id])
     unless @fixedcost.user_id == current_user.id

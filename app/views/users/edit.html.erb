@@ -1,6 +1,7 @@
 <div class="user-edit">
   <h2 class="user-edit__title">ユーザー情報編集</h2>
     <%= form_with model:@user, local:true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="user-edit__contents">
       <div class="user-edit__box">
         <div class="user-edit__h-name">アカウント名</div>

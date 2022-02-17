@@ -26,7 +26,7 @@ class FixedcostValuesController < ApplicationController
     if @fixedcost_value.save
       redirect_to fixedcost_value_path(@fixedcost_value), notice: '登録しました'
     else
-      render 'index'
+      render 'new'
     end
   end
 
@@ -34,7 +34,7 @@ class FixedcostValuesController < ApplicationController
     if @fixedcost_value.update(fixedcost_value_params)
       redirect_to fixedcost_value_path(@fixedcost_value), notice: "データを更新しました。"
     else
-      render 'index'
+      render 'edit'
     end
   end
 

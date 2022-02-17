@@ -83,5 +83,6 @@ gem "simple_calendar", "~> 2.4"
 #dotenv-railsでプロジェクトごとにファイルベースで環境変数を管理
 gem 'dotenv-rails'
 group :production do
+  #本番環境で使用
   gem 'mysql2'
 end

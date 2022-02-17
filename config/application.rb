@@ -10,10 +10,10 @@ module MyKakeibo
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    
+
     #デフォルトのロケールを日本語に変更
     config.i18n.default_locale = :ja
-    #階層ごとの指定
+    #config/locales下にある全てのymlファイル読み込み
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
     # Settings in config/environments/* take precedence over those specified here.

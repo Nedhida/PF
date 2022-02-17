@@ -1,4 +1,4 @@
-.move-page a, .move-page input {
+.move-page div, .move-page a, .move-page input {
   &:not(.move-page__shrink) {display: flex;}
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   background-color: #20b2aa;
   transition: 0.3s;
   border-radius: 20px;
-  margin-top: 10px;
+  &:not(.move-page__name) {margin-top: 10px;}
 
   &__show {
     bottom: 0;
@@ -18,7 +18,7 @@
 
 
 
-.move-page a:hover, , .move-page input:hover {
+.move-page div:hover, .move-page a:hover, .move-page input:hover {
   text-decoration: none;
   background-color: #cccccc;
   color: #000;
@@ -29,3 +29,4 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+

@@ -2,19 +2,24 @@ ja:
   #コンポーネント。DBデータの取得、保存ができる
   activerecord:
     models:
+      user: ユーザー
       comment: コメント
       favorite: いいね
       fixedcost: 固定費項目
       fixedcost_value: 固定費
       income: 収入項目
       income_value: 収入
-      post: 投稿
       relationship: フォロー関係
       variablecost: 支出項目
       variablecost_value: 支出
 
     #モデルに含まれるすべての属性
     attributes:
+      user:
+        name: ユーザー名
+        introduction: 紹介
+        password: パスワード
+        profile_image_id: プロフィール画像
       comment:
         comment: コメント
       fixedcost:
@@ -33,10 +38,6 @@ ja:
         date: 日付
         value: 金額
         description: メモ
-      post:
-        title: タイトル
-        image_id: 画像
-        body: 投稿内容
       relationship:
         follower_id: フォロワー
         followed_id: フォロー
@@ -48,10 +49,11 @@ ja:
         date: 日付
         value: 金額
         description: メモ
+        privacy: 公開設定
 
     attributes:
-    created_at: 作成日時
-    updated_at: 更新日時
+      created_at: 作成日時
+      updated_at: 更新日時
 
 
 

@@ -26,7 +26,7 @@ class VariablecostValuesController < ApplicationController
     if @variablecost_value.save
       redirect_to variablecost_value_path(@variablecost_value), notice: '登録しました'
     else
-      render 'index'
+      render 'new'
     end
   end
 
@@ -34,7 +34,7 @@ class VariablecostValuesController < ApplicationController
     if @variablecost_value.update(variablecost_value_params)
       redirect_to variablecost_value_path(@variablecost_value), notice: "データを更新しました。"
     else
-      render 'index'
+      render 'edit'
     end
   end
 

@@ -16,7 +16,7 @@ class VariablecostsController < ApplicationController
 	    render 'index'
 	  end
 	end
-	
+
 	def edit
 	end
 
@@ -24,7 +24,7 @@ class VariablecostsController < ApplicationController
 	  if @variablecost.update(variablecost_params)
       redirect_to variablecosts_path, notice: "支出項目を更新しました。"
     else
-      render 'index'
+      render 'edit'
     end
 
   end
@@ -34,13 +34,13 @@ class VariablecostsController < ApplicationController
 	  @variablecost.destroy
 	  redirect_to variablecosts_path, notice: "支出項目を削除しました"
 	end
-	
+
 	private
 
   def variablecost_params
     params.require(:variablecost).permit(:name, :description).merge(user_id: current_user.id)
   end
-  
+
   def ensure_correct_user
     @variablecost = Variablecost.find(params[:id])
     unless @variablecost.user_id == current_user.id

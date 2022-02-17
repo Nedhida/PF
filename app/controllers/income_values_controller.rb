@@ -26,7 +26,7 @@ class IncomeValuesController < ApplicationController
     if @income_value.save
       redirect_to income_value_path(@income_value), notice: '登録しました'
     else
-      render 'index'
+      render 'new'
     end
   end
 
@@ -34,7 +34,7 @@ class IncomeValuesController < ApplicationController
     if @income_value.update(income_value_params)
       redirect_to income_value_path(@income_value), notice: "データを更新しました。"
     else
-      render 'index'
+      render 'edit'
     end
   end
 

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:update, :edit]
+  before_action :login_check
 
   def show
     @user = User.find(params[:id])
@@ -46,6 +47,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     unless @user == current_user
       redirect_to user_path(current_user)
+    end
+  end
+
+  def login_check
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
     end
   end
 
