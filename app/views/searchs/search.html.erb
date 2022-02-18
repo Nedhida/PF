@@ -1,0 +1,9 @@
+<%= render 'searchs/form' %>
+
+<% if @model == 'user' %>
+  <h3>"<%= @content %> の検索結果"</h3>
+  <%= render 'users/index', users: @records %>
+<% else @model == 'variablecost_value' %>
+  <h3>"<%= @content %>" の検索結果</h3>
+  <%= render 'posts/index', variablecost_values: @records %>
+<% end %>
