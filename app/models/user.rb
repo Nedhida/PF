@@ -26,7 +26,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   validates :email, presence: true
-  validates :name, length: { minimum: 2}
+  validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
 
   #フォローするときの処理
   def follow(user_id)
