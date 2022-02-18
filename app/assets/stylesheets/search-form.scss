@@ -1,0 +1,13 @@
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__box {
+    display: flex;
+  }
+
+  &__item {
+    align-self: flex-end;
+    margin: 0 5px 5px 5px;
+  }
+}
