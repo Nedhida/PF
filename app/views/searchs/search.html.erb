@@ -1,9 +1,12 @@
 <%= render 'searchs/form' %>
 
 <% if @model == 'user' %>
-  <h3>"<%= @content %> の検索結果"</h3>
+  <h3>ユーザー"<%= @content %> の検索結果"</h3>
   <%= render 'users/index', users: @records %>
-<% else @model == 'variablecost_value' %>
-  <h3>"<%= @content %>" の検索結果</h3>
+<% elsif @model == 'variablecost_value' %>
+  <h3>投稿"<%= @content %>" の検索結果</h3>
   <%= render 'posts/index', variablecost_values: @records %>
+<% else @model == 'variablecost' %>
+  <h3>項目"<%= @content %>" の検索結果</h3>
+  <%= render 'variablecost', variablecosts: @records %>
 <% end %>

@@ -1,3 +1,6 @@
+<% unless variablecost_values.present? %>
+  <div class="ite-nothing">ユーザーがいません</div>
+<% else %>
   <% users.each do |user| %>
     <div class="user-index__content" >
 
@@ -41,3 +44,4 @@
 
   </div>
   <% end %>
+<% end %>
