@@ -13,6 +13,8 @@ class VariablecostsController < ApplicationController
 	  if @variablecost.save
 	    redirect_to variablecosts_path, notice: '支出項目を登録しました'
 	  else
+	    user = current_user
+	    @variablecosts = user.variablecosts.all
 	    render 'index'
 	  end
 	end

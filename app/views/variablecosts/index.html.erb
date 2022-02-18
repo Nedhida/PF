@@ -29,11 +29,13 @@
             <div class="item-nothing">未設定</div>
           <% end %>
         </div>
-        <div class="move-page">
-          <%= link_to '編集する', edit_variablecost_path(item) %>
-        </div>
-        <div class="move-page">
-          <%= link_to '削除する', variablecost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+        <div class="items-index__box-ex">
+          <div class="move-page">
+            <%= link_to '編集する', edit_variablecost_path(item) %>
+          </div>
+          <div class="move-page">
+            <%= link_to '削除する', variablecost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+          </div>
         </div>
       </div>
       <% end %>

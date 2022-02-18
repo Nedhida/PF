@@ -13,6 +13,8 @@ class FixedcostsController < ApplicationController
 	  if @fixedcost.save
 	    redirect_to fixedcosts_path, notice: '固定費項目を登録しました'
 	  else
+	    user = current_user
+	    @fixedcosts = user.fixedcosts.all
 	    render 'index'
 	  end
 	end
