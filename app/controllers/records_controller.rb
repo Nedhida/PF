@@ -1,8 +1,8 @@
 class RecordsController < ApplicationController
   before_action :set_start_time
-  before_action :income, only: %i[income_day day graph_month]
-  before_action :fixedcost, only: %i[fixedcost_day day graph_month]
-  before_action :variablecost, only: %i[variablecost_day day graph_month]
+  before_action :income, only: %i[income_day day]
+  before_action :fixedcost, only: %i[fixedcost_day day]
+  before_action :variablecost, only: %i[variablecost_day day]
 
   #月の収支合計カレンダー
   def month
@@ -30,32 +30,35 @@ class RecordsController < ApplicationController
     @day_total = @income_value_total - (@fixedcost_value_total + @variablecost_value_total)
   end
 
+  #月の収支グラフ
   def graph_month
+    # (1) * = 可変長引数、配列として認識される。(2) split("-") = 文字列を"-"で分断。(3)Time.local = Time オブジェクトを返す。 (4).all_month = その月の１日から月末まで。(5)where = テーブルから（４）の条件で取得。group_by_month = 月ごとにグループ化
+    # @start_time = "2022-02" =>  (1)["2022-02"] => (2)["2022", "02"] => (3)2022-02-01 00:00:00 +0000 => (4)2022-02-01 00:00:00 +0000..2022-02-28 23:59:59 +0000
 
-    FixedcostValue.where(start_time: params[:start_time].split("-").all_month).group_by_month(:start_time).sum(:value)
-    FixedcostValue.where(start_time: Time.local(*params[:start_time].split("-")).all_month).group_by_month(:start_time).sum(:value)
+    #月の収入額合計
+    @in_value_month = IncomeValue.where(start_time: Time.local(*@start_time.split("-")).all_month)#.group_by_month(:start_time)
+    @income_value_total = 0
+    @in_value_month.each do |income_value|
+      @income_value_total += income_value.value
+    end
 
-    @fixedcost_values = FixedcostValue.group("MONTH(start_time)")
+    #月の固定費額合計
+    @fix_value_month = FixedcostValue.where(start_time: Time.local(*@start_time.split("-")).all_month)#.group_by_month(:start_time)
+    @fixedcost_value_total = 0
+    @fix_value_month.each do |fixedcost_value|
+      @fixedcost_value_total += fixedcost_value.value
+    end
+
+    #月の支出額合計
+    @var_value_month = VariablecostValue.where(start_time: Time.local(*@start_time.split("-")).all_month)#.group_by_month(:start_time)
+    @variablecost_value_total = 0
+    @var_value_month.each do |variablecost_value|
+      @variablecost_value_total +=  variablecost_value.value
+    end
   end
-  # { "2022/2" => 2000, "2022/3" => 3000 }
-
-  #@start_time = '2022-02' view
-  #+
-  #start_time = '2022-02-14' clomun
-  #=
-  #@fixedcost_values = nil
-  #↓
-
-  #@start_time = '2022-02-01'
-  #OR
-  #start_time = '2022-02'
 
 
-  def graph_year
-  end
-
-
-
+  
   private
 
   def set_start_time

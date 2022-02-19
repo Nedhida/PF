@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :records, only: [:show] do
     collection do
       get :income_day, :fixedcost_day, :variablecost_day, :month, :day,
-          :graph_month, :graph_year
+          :graph_month
     end
   end
 

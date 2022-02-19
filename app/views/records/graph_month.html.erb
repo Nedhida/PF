@@ -10,7 +10,7 @@
     type: 'doughnut',
 
     data: {
-         labels: ['Income', 'Fixedcost', 'Variablecost'],
+         labels: ['収入額', '固定費額', '支出額'],
          datasets: [{
              backgroundColor: [
                  'red',
@@ -18,7 +18,7 @@
                  'blue',
                  ],
              label: 'dataset example',
-             data: [<%= @income_value_total.month %>, <%= @fixedcost_value_total.month %>, <%= @variablecost_value_total.month %> ]
+             data: [<%= @income_value_total %>, <%= @fixedcost_value_total %>, <%= @variablecost_value_total %> ]
          }]
      },
 
