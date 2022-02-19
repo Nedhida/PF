@@ -1,3 +1,9 @@
+<p>月ごとのグラフ用選択フォーム（削除予定）</p>
+<%= form_with url: {controller: 'records', action: 'graph_month'}, method: :get, local: true do |f| %>
+  <%= f.month_field "start_time" %>
+  <%= f.submit %>
+<% end %>
+<p>ここまで</p>
 
 <div class="yield-layout">
 

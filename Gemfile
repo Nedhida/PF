@@ -88,3 +88,5 @@ group :production do
   #本番環境で使用
   gem 'mysql2'
 end
+
+gem "groupdate"

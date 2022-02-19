@@ -31,9 +31,13 @@ class RecordsController < ApplicationController
   end
 
   def graph_month
+
+    FixedcostValue.where(start_time: params[:start_time].split("-").all_month).group_by_month(:start_time).sum(:value)
+    FixedcostValue.where(start_time: Time.local(*params[:start_time].split("-")).all_month).group_by_month(:start_time).sum(:value)
+
     @fixedcost_values = FixedcostValue.group("MONTH(start_time)")
-    byebug
   end
+  # { "2022/2" => 2000, "2022/3" => 3000 }
 
   #@start_time = '2022-02' view
   #+
