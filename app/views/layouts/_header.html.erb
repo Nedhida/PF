@@ -6,7 +6,6 @@
           <%= image_tag 'pig_black.png', :size => '30x30', class: 'logo__head' %>私の家計簿
         </span>
       </a>
-      <%= render 'searchs/form' %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -17,17 +16,21 @@
               <%= link_to 'マイページ', user_path(current_user) %>
             </li>
             <li>
-              <%= link_to '家計簿マイページ', month_records_path(current_user) %>
-            </li>
-            <li>
               <%= link_to '投稿一覧', posts_path %>
             </li>
             <li>
               <%= link_to 'ユーザー一覧', users_path %>
             </li>
             <li>
+              <%= link_to '家計簿マイページ', month_records_path(current_user) %>
+            </li>
+            <li>
+              <%= link_to '今月の統計', graph_month_records_path(current_user) %>
+            </li>
+            <li>
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
             </li>
+              <%= render 'searchs/form' %>
           </ul>
         <% else %>
           <ul class="navbar-nav ml-auto">

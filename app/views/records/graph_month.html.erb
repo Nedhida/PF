@@ -1,33 +1,75 @@
+<div class="graph">
+  <h2 class="graph__title"><%= @start_time %>の統計</h2>
 <%= form_with url: {controller: 'records', action: 'graph_month'}, method: :get, local: true do |f| %>
-  <%= f.month_field "start_time" %>
-  <%= f.submit %>
+  <div class="records-day">
+    <div class="records-day__select">
+      <div class="records-day__head">日付選択</div>
+      <div class="records-day__box3">
+        <div class="records-day__date">
+          <%= f.month_field "start_time" %>
+        </div>
+
+        <div class="move-page">
+          <%= f.submit '選択', class:'move-page__select' %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
-<canvas id="myChart" width="400" height="400"></canvas>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-  var ctx = document.getElementById('myChart').getContext('2d');
- var chart = new Chart(ctx, {
-    type: 'doughnut',
+<% if @income_value_total == 0 and @fixedcost_value_total == 0 and @variablecost_value_total == 0 %>
+  <div class="nothing-item"><%= @start_time %>の記録はありません。</div>
+<% end %>
+  <canvas id="myChart" class="graph__content"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+   var chart = new Chart(ctx, {
+      type: 'doughnut',
 
-    data: {
-         labels: ['収入額', '固定費額', '支出額'],
-         datasets: [{
-             backgroundColor: [
-                 'red',
-                 'yellow',
-                 'blue',
-                 ],
-             label: 'dataset example',
-             data: [<%= @income_value_total %>, <%= @fixedcost_value_total %>, <%= @variablecost_value_total %> ]
-         }]
-     },
+      data: {
+           labels: ['収入額', '固定費額', '支出額'],
+           datasets: [{
+               backgroundColor: [
+                   '#2027b3',
+                   '#27b320',
+                   '#b32071',
+                   ],
+               label: 'dataset example',
+               data: [<%= @income_value_total %>, <%= @fixedcost_value_total %>, <%= @variablecost_value_total %> ]
+           }]
+       },
 
-     options: {
-       //タイトル
-       title: {
-         display: true,
-         text: 'Income month'
+       options: {
+         //タイトル
+         title: {
+           display: true,
+           text: 'Income month'
+         }
        }
-     }
-});
-</script>
+  });
+  </script>
+
+  <div class="graph__tab-wrap">
+	<input id="tab1" type="radio" name="tab_btn" checked>
+	<input id="tab2" type="radio" name="tab_btn">
+	<input id="tab3" type="radio" name="tab_btn">
+
+	<div class="graph__tab-area">
+		<label class="graph__tab1-label" for="tab1">収入</label>
+		<label class="graph__tab2-label" for="tab2">固定費</label>
+		<label class="graph__tab3-label" for="tab3">支出</label>
+	</div>
+	<div class="graph__panel-area">
+		<div id="panel1" class="graph__tab-panel">
+			<div class="graph__show">詳細１</div>
+		</div>
+		<div id="panel2" class="graph__tab-panel">
+			<div class="graph__show">詳細２</div>
+		</div>
+		<div id="panel3" class="graph__tab-panel">
+			<div class="graph__show">詳細３</div>
+		</div>
+	</div>
+</div>
+
+</div>

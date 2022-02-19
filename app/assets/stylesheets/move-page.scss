@@ -1,10 +1,12 @@
+/*#20b2aa 青 #b32027 赤　#b3ab20 緑 */
+
 .move-page div, .move-page a, .move-page input {
   &:not(.move-page__shrink) {display: flex;}
   justify-content: center;
   align-items: center;
   padding: 0 5px;
   color: #fff;
-  background-color: #20b2aa;
+  &:not(.move-page__delete) {background-color: #20b2aa;}
   transition: 0.3s;
   border-radius: 20px;
   &:not(.move-page__name) {margin-top: 10px;}
@@ -16,6 +18,9 @@
 
 }
 
+.move-page__delete {
+  background-color: #b32027;
+}
 
 
 .move-page div:hover, .move-page a:hover, .move-page input:hover {

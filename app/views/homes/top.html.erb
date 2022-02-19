@@ -15,7 +15,7 @@
 
     <% if user_signed_in? %>
     <div class="move-page">
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'move-page__delete' %>
     </div>
     <% else %>
     <div class="move-page">
