@@ -6,7 +6,7 @@ class VariablecostValue < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   has_many :comments, dependent: :destroy
 
-  validates :start_time, :code, :variablecost_id, :privacy, presence: true
+  validates :start_time, :code, :privacy, presence: true
   validates :value, format: { with: /\A[0-9]+\z/ } #数値半角
 
   #userのfavoriteの有無

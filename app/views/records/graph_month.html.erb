@@ -1,3 +1,4 @@
+<div class="yield-layout">
 <div class="graph">
   <h2 class="graph__title"><%= @start_time %>の統計</h2>
 
@@ -9,7 +10,7 @@
       <div class="records-day__head">日付選択</div>
       <div class="records-day__box3">
         <div class="records-day__date">
-          <%= f.month_field "start_time" %>
+          <%= f.month_field "start_time", value:Time.now.strftime("%Y-%m") %>
         </div>
 
         <div class="move-page">
@@ -51,21 +52,22 @@
        }
   });
   </script>
+  </div>
 
-  <div class="graph__tab-wrap">
+  <div class="graph-show__tab-wrap">
 	<input id="tab1" type="radio" name="tab_btn" checked>
 	<input id="tab2" type="radio" name="tab_btn">
 	<input id="tab3" type="radio" name="tab_btn">
 
-	<div class="graph__tab-area">
-		<label class="graph__tab1-label" for="tab1">収入</label>
-		<label class="graph__tab2-label" for="tab2">固定費</label>
-		<label class="graph__tab3-label" for="tab3">支出</label>
+	<div class="graph-show__tab-area">
+		<label class="graph-show__tab1-label" for="tab1">収入</label>
+		<label class="graph-show__tab2-label" for="tab2">固定費</label>
+		<label class="graph-show__tab3-label" for="tab3">支出</label>
 	</div>
-	<div class="graph__panel-area">
+	<div class="graph-show__panel-area">
 		<div id="panel1" class="graph__tab-panel">
-			<div class="graph__show">
-			  <div class="graph__show">
+			<div class="graph-show__show">
+			  <div class="graph-show__show">
         <div class="days">
           <h2 class="days__title">月の収入一覧</h2>
           <%= render 'income_values/records', start_time: @start_time, total: @income_value_total, value: @in_value_month %>
@@ -74,8 +76,8 @@
 			</div>
 			</div>
 		</div>
-		<div id="panel2" class="graph__tab-panel">
-			<div class="graph__show">
+		<div id="panel2" class="graph-show__tab-panel">
+			<div class="graph-show__show">
         <div class="days">
           <h2 class="days__title">月の固定費一覧</h2>
           <%= render 'fixedcost_values/records', start_time: @start_time, total: @fixedcost_value_total, value: @fix_value_month %>
@@ -83,9 +85,9 @@
 
 			</div>
 		</div>
-		<div id="panel3" class="graph__tab-panel">
-			<div class="graph__show">
-			  <div class="graph__show">
+		<div id="panel3" class="graph-show__tab-panel">
+			<div class="graph-show__show">
+			  <div class="graph-show__show">
         <div class="days">
           <h2 class="days__title">月の支出一覧</h2>
           <%= render 'variablecost_values/records', start_time: @start_time, total: @variablecost_value_total, value: @var_value_month %>
@@ -96,5 +98,4 @@
 		</div>
 	</div>
 </div>
-
 </div>

@@ -1,12 +1,17 @@
+<div class="yield-layout">
+  <%= render 'users/info', user: @user %>
 
+  <div class="search">
+    <% if @model == 'user' %>
+      <h2 class="search__title">ユーザー" <%= @content %> "の検索結果</h2>
+      <%= render 'users/index', users: @records %>
+    <% elsif @model == 'variablecost_value' %>
+      <h2 class="search__title">投稿" <%= @content %> "の検索結果</h2>
+      <%= render 'posts/index', variablecost_values: @records %>
+    <% else @model == 'variablecost' %>
+      <h2 class="search__title">項目" <%= @content %> "の検索結果</h2>
+      <%= render 'variablecost', variablecosts: @records %>
+    <% end %>
+  </div>
 
-<% if @model == 'user' %>
-  <h3>ユーザー"<%= @content %> の検索結果"</h3>
-  <%= render 'users/index', users: @records %>
-<% elsif @model == 'variablecost_value' %>
-  <h3>投稿"<%= @content %>" の検索結果</h3>
-  <%= render 'posts/index', variablecost_values: @records %>
-<% else @model == 'variablecost' %>
-  <h3>項目"<%= @content %>" の検索結果</h3>
-  <%= render 'variablecost', variablecosts: @records %>
-<% end %>
+</div>

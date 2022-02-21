@@ -15,11 +15,12 @@
         <%= render 'variablecost_values/show', item: @variablecost_value %>
       </div>
       <div class="move-page">
-        <%= link_to '編集する', edit_variablecost_value_path(@variablecost_value) %>
+        <%= link_to '編集する', edit_variablecost_value_path(@variablecost_value), class:"move-page__edit" %>
+        <%= link_to '削除する', variablecost_value_path(@variablecost_value), method: :delete, data: { confirm: '本当に消しますか？' }, class:"move-page__delete" %>
       </div>
-      <div class="move-page">
-        <%= link_to '削除する', variablecost_value_path(@variablecost_value), method: :delete, data: { confirm: '本当に消しますか？' }%>
-      </div>
+    </div>
+    <div class="move-page">
+      <%=link_to '今日の登録', day_records_path(start_time: @variablecost_value.start_time.strftime('%Y/%m/%d')) %>
     </div>
 
   </div>

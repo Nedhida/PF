@@ -2,7 +2,8 @@
   <div class="post-show__new-comment">
     <%= form_with(model:[post, comment],method: :post, remote: true) do |f| %>
       <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-      <%= f.submit "送信する" %>
+      <div class="move-page">
+        <%= f.submit "送信する" %>
+      </div>
     <% end %>
   </div>
-<% end %>

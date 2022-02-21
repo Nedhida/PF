@@ -36,7 +36,7 @@ class RecordsController < ApplicationController
     # @start_time = "2022-02" =>  (1)["2022-02"] => (2)["2022", "02"] =>                (3)2022-02-01 00:00:00 +0000 =>           (4)2022-02-01 00:00:00 +0000..2022-02-28 23:59:59 +0000
 
     #月の収入額合計
-    
+
     @in_value_month = IncomeValue.where(start_time: Time.local(*@start_time.split("-")).all_month)#.group_by_month(:start_time)
     @income_value_total = 0
     @in_value_month.each do |income_value|

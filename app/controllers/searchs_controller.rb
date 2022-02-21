@@ -1,6 +1,7 @@
 class SearchsController < ApplicationController
 
   def search
+    @user = current_user
   # viewのform_withにて
     #選択したmodelの値を@modelに代入
     @model = params["model"]

@@ -26,6 +26,8 @@ class IncomeValuesController < ApplicationController
     if @income_value.save
       redirect_to income_value_path(@income_value), notice: '登録しました'
     else
+      user = current_user
+      @incomes = user.incomes.all
       render 'new'
     end
   end

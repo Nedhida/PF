@@ -1,12 +1,27 @@
 /*#20b2aa 青 #b32027 赤　#b3ab20 緑 */
 
+.move-page {
+  display: flex;
+  justify-content: space-around;
+
+  &__delete {
+    background-color: #b32027;
+  }
+
+  &__edit {
+    background-color: #b3ab20;
+  }
+
+
+}
+
 .move-page div, .move-page a, .move-page input {
   &:not(.move-page__shrink, .move-page__select) {display: flex;}
   justify-content: center;
   align-items: center;
   padding: 0 5px;
   color: #fff;
-  &:not(.move-page__delete) {background-color: #20b2aa;}
+  &:not(.move-page__delete, .move-page__edit) {background-color: #20b2aa;}
   transition: 0.3s;
   border-radius: 20px;
   &:not(.move-page__name) {margin-top: 10px;}
@@ -16,10 +31,6 @@
     margin: 3px;
   }
 
-}
-
-.move-page__delete {
-  background-color: #b32027;
 }
 
 

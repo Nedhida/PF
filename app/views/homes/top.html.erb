@@ -1,10 +1,3 @@
-<p>月ごとのグラフ用選択フォーム（削除予定）</p>
-<%= form_with url: {controller: 'records', action: 'graph_month'}, method: :get, local: true do |f| %>
-  <%= f.month_field "start_time" %>
-  <%= f.submit %>
-<% end %>
-<p>ここまで</p>
-
 <div class="yield-layout">
 
   <div class="top">
@@ -19,12 +12,9 @@
     </div>
     <% else %>
     <div class="move-page">
-      <div class="move-page__sign-up">
-        <%= link_to 'サインアップ', new_user_registration_path %>
-      </div>
-      <div class="move-page__log-in">
-        <%= link_to 'ログイン', new_user_session_path %>
-      </div>
+      <%= link_to 'サインアップ', new_user_registration_path, class:"move-page__sign-up" %>
+
+      <%= link_to 'ログイン', new_user_session_path %>
     </div>
     <% end %>
   </div>

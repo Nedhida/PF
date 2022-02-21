@@ -1,7 +1,7 @@
 <div class="user-info">
   <h2 class="user-info__title">ユーザー情報</h2>
   <div class="user-info__image">
-    <%= attachment_image_tag(user, :profile_image, fallback: "user_no_image.jpg", size:'60x60')%>
+    <%= attachment_image_tag(user, :profile_image, fallback: "pig_black.png", size:'60x60')%>
   </div>
   <div class="user-info__name">
     <div class="user-info__head">
@@ -39,7 +39,7 @@
     <% unless current_user == user %>
     <% else %>
       <div class="move-page">
-        <%= link_to 'ユーザー情報編集',edit_user_path(user), class:'move-page__user-edit' %>
+        <%= link_to 'ユーザー情報編集',edit_user_path(user), class:'move-page__edit' %>
       </div>
       <div class="move-page">
         <%= link_to '新規投稿',new_variablecost_value_path, class:'move-page__new-post' %>

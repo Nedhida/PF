@@ -10,7 +10,7 @@
       <div class="post-show__comment-body"><%= comment.comment %></div>
       <% if comment.user == current_user %>
           <div class="move-page">
-            <%= link_to "削除する", variablecost_value_comment_path(post.id, comment.id), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
+            <%= link_to "削除する", variablecost_value_comment_path(post.id, comment.id), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class:"move-page__delete" %>
         </div>
       <% end %>
     </div>

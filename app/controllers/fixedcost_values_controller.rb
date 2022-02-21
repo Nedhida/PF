@@ -26,6 +26,8 @@ class FixedcostValuesController < ApplicationController
     if @fixedcost_value.save
       redirect_to fixedcost_value_path(@fixedcost_value), notice: '登録しました'
     else
+      user = current_user
+      @fixedcosts = user.fixedcosts.all
       render 'new'
     end
   end

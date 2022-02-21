@@ -48,10 +48,10 @@
           </div>
           <% if @variablecost_value.user_id == current_user.id %>
             <div class="move-page">
-              <%= link_to '編集する', edit_variablecost_value_path(@variablecost_value)%>
+              <%= link_to '編集する', edit_variablecost_value_path(@variablecost_value), class:"move-page__edit" %>
             </div>
             <div class="move-page">
-              <%= link_to '削除する', variablecost_value_path(@variablecost_value), method: :delete, data: { confirm: '本当に消しますか？' }%>
+              <%= link_to '削除する', variablecost_value_path(@variablecost_value), method: :delete, data: { confirm: '本当に消しますか？' }, class:"move-page__delete" %>
             </div>
           <% end %>
           <div class="post-show__box" id="favorite_buttons_<%=@variablecost_value.id %>">

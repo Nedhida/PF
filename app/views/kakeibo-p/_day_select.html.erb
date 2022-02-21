@@ -3,7 +3,7 @@
   <div class="records-day__head">日付選択</div>
   <div class="records-day__box3">
     <div class="records-day__date">
-      <%= f.date_field "start_time" %>
+      <%= f.date_field "start_time", value:Time.now.strftime("%Y-%m-%d") %>
     </div>
 
     <div class="move-page">

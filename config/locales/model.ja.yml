@@ -26,16 +26,18 @@ ja:
         name: 項目名
         description: 備考
       fixedcost_value:
+        fixedcost: 固定費項目
         content: 内容
-        date: 日付
+        start_time: 日付
         value: 金額
         description: メモ
       income:
         name: 項目名
         description: 備考
       income_value:
+        income: 収入項目
         content: 内容
-        date: 日付
+        start_time: 日付
         value: 金額
         description: メモ
       relationship:
@@ -45,8 +47,9 @@ ja:
         name: 項目名
         description: 備考
       variablecost_value:
+        variablecost: 支出項目
         content: 内容
-        date: 日付
+        start_time: 日付
         value: 金額
         description: メモ
         privacy: 公開設定

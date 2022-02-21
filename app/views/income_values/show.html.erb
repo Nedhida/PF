@@ -15,11 +15,14 @@
         <%= render 'income_values/show', item: @income_value %>
       </div>
       <div class="move-page">
-          <%= link_to '編集する', edit_income_value_path(@income_value) %>
+          <%= link_to '編集する', edit_income_value_path(@income_value), class:"move-page__edit" %>
       </div>
       <div class="move-page">
-          <%= link_to '削除する', income_value_path(@income_value), method: :delete, data: { confirm: '本当に消しますか？' }%>
+          <%= link_to '削除する', income_value_path(@income_value), method: :delete, data: { confirm: '本当に消しますか？' }, class:"move-page__delete" %>
       </div>
+    </div>
+    <div class="move-page">
+      <%=link_to '今日の登録', day_records_path(start_time: @income_value.start_time.strftime('%Y/%m/%d')) %>
     </div>
 
   </div>

@@ -26,6 +26,8 @@ class VariablecostValuesController < ApplicationController
     if @variablecost_value.save
       redirect_to variablecost_value_path(@variablecost_value), notice: '登録しました'
     else
+      user = current_user
+      @variablecosts = user.variablecosts.all
       render 'new'
     end
   end

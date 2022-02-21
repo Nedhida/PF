@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   get '/search', to: 'searchs#search'
 
   resources :incomes, :fixedcosts, :variablecosts,
-            :income_values, :fixedcost_values, :variablecost_values
-            
+            :income_values, :fixedcost_values
+
   resources :records, only: [:show] do
     collection do
       get :income_day, :fixedcost_day, :variablecost_day, :month, :day,

@@ -12,52 +12,38 @@
       <div class="navbar-collapse collapse" id="navbarNavDropdown"style>
         <% if user_signed_in? %>
           <ul class="navbar-nav ml-auto">
-            <li>
+            <li class="header__li">
               <%= link_to 'マイページ', user_path(current_user) %>
             </li>
-            <li>
+            <li class="header__li">
               <%= link_to '投稿一覧', posts_path %>
             </li>
-            <li>
+            <li class="header__li">
               <%= link_to 'ユーザー一覧', users_path %>
             </li>
-            <li>
+            <li class="header__li">
               <%= link_to '家計簿マイページ', month_records_path(current_user) %>
             </li>
-            <li>
-              <%= form_with url: {controller: 'records', action: 'graph_month'}, method: :get, local: true do |f| %>
-                <div class="records-head">
-                  <div class="records-head__select">
-                    <div class="records-head__head">月の統計</div>
-                    <div class="records-head__box3">
-                      <div class="records-head__date">
-                        <%= f.month_field "start_time" %>
-                        <div class="move-page">
-                          <%= f.submit '選択', class:'move-page__select' %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
+            <li class="header__li">
+              <%=link_to '今月の統計', graph_month_records_path(start_time: Time.now.strftime("%Y-%m")) %>
             </li>
-            <li>
+            <li class="header__li">
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
             </li>
               <%= render 'searchs/form' %>
           </ul>
         <% else %>
           <ul class="navbar-nav ml-auto">
-            <li>
+            <li class="header__li">
               <%= link_to 'マイページ', root_path %>
             </li>
-            <li>
+            <li class="header__li">
               <%= link_to 'アバウト', home_about_path %>
             </li>
-            <li>
+            <li class="header__li">
               <%= link_to 'サインアップ', new_user_registration_path %>
             </li>
-            <li>
+            <li class="header__li">
               <%= link_to 'ログイン', new_user_session_path %>
             </li>
           </ul>

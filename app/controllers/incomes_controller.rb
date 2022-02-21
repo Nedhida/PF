@@ -13,6 +13,7 @@ class IncomesController < ApplicationController
 	  if @income.save
 	    redirect_to incomes_path, notice: '収入項目を登録しました'
 	  else
+	  	user = current_user
 	  	@incomes = user.incomes.all
 	    render 'index'
 	  end

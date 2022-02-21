@@ -11,7 +11,7 @@
             <div class="post-index__block1">
               <div class="post-index__account">
                 <%= link_to user_path(post.user) do %>
-                  <%= attachment_image_tag(post.user, :profile_image, fallback: "user_no_image.jpg", size: '40x40', class:'post-index__profile-image') %>
+                  <%= attachment_image_tag(post.user, :profile_image, fallback: "pig_black.png", size: '40x40', class:'post-index__profile-image') %>
                   <div class="move-page">
                     <div class="move-page__name">
                       <%= post.user.name %>
