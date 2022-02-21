@@ -2,10 +2,7 @@
 
   <div class="value-new">
     <h2 class="value-new">収入登録フォーム</h2>
-    <div class="links-new">
-      <%= render 'fixedcost_values/link_new' %>
-      <%= render 'variablecost_values/link_new' %>
-    </div>
+    <%= render 'kakeibo-p/links' %>
     <%= form_with model:@income_value, url: income_values_path, method: :post, local: true do |f| %>
       <%= render 'form', incomes: @incomes, f: f %>
     <% end %>

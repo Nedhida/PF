@@ -1,6 +1,6 @@
 <div class="items-index">
   <h2 class="items-index__title">固定費項目</h2>
-  <%= render 'fixedcost_values/link_new' %>
+  <%= render 'kakeibo-p/links' %>
   <div class="items-index__register">
     <div class="items-index__register-title">項目設定</div>
     <%= form_with model: @fixedcost, url:fixedcosts_path, local: true do |f| %>
@@ -29,11 +29,13 @@
             <div class="item-nothing">未設定</div>
           <% end %>
         </div>
-        <div class="move-page">
-          <%= link_to '編集する', edit_fixedcost_path(item) %>
-        </div>
-        <div class="move-page">
-          <%= link_to '削除する', fixedcost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+        <div class="items-index__box-ex">
+          <div class="move-page">
+            <%= link_to '編集する', edit_fixedcost_path(item), class:"move-page__edit" %>
+          </div>
+          <div class="move-page">
+            <%= link_to '削除する', fixedcost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }, class:"move-page__delete" %>
+          </div>
         </div>
       </div>
       <% end %>

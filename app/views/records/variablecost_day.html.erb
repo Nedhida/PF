@@ -8,7 +8,7 @@
     <%= form_with url: {controller: 'records', action: 'variablecost_day'}, method: :get, local: true do |f| %>
       <%= render 'kakeibo-p/day_select', f: f %>
     <% end %>
-    <%= render 'variablecost_values/records', start_time: @start_time, total: @variablecost_value_total, value: @var_value_month %>
+    <%= render 'variablecost_values/records', start_time: @start_time, total: @variablecost_value_total, value: @variablecost_values %>
   </div>
 
 </div>

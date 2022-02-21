@@ -1,25 +1,46 @@
-<details>
-　  <summary>登録各種</summary>
-    <div class="links-new">
-      <%= render 'variablecost_values/link_new' %>
-      <%= render 'fixedcost_values/link_new' %>
-      <%= render 'income_values/link_new' %>
-    </div>
-  </details>
-  <details>
+    <details>
 　  <summary>登録別カレンダー</summary>
     <div class="links-new">
       <div class="move-page">
-        <%= link_to '月次カレンダー', month_records_path(current_user) %>
+        <%= link_to '月次のカレンダー', month_records_path(current_user) %>
       </div>
       <div class="move-page">
-        <%= link_to '支出カレンダー', variablecost_values_path %>
+        <%= link_to '支出のカレンダー', variablecost_values_path %>
       </div>
       <div class="move-page">
         <%= link_to '固定費カレンダー', fixedcost_values_path %>
       </div>
       <div class="move-page">
-        <%= link_to '収入カレンダー', income_values_path %>
+        <%= link_to '収入のカレンダー', income_values_path %>
       </div>
     </div>
   </details>
+  <details>
+　  <summary>登録各種</summary>
+    <div class="links-new">
+      <div class="move-page">
+        <%= link_to '支出データの登録', new_variablecost_value_path %>
+      </div>
+      <div class="move-page">
+        <%= link_to '固定費データ登録', new_fixedcost_value_path %>
+      </div>
+      <div class="move-page">
+        <%= link_to '収入データの登録', new_income_value_path %>
+      </div>
+    </div>
+  </details>
+
+  <details>
+　  <summary>項目追加</summary>
+　  <div class="links-new">
+　    <div class="move-page">
+　      <%= link_to '支出の項目', variablecosts_path %>
+　    </div>
+　    <div class="move-page">
+　      <%= link_to '固定費項目', fixedcosts_path %>
+　    </div>
+　    <div class="move-page">
+　      <%= link_to '収入の項目', incomes_path %>
+　    </div>
+　  </div>
+　</details>

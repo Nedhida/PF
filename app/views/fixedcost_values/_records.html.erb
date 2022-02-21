@@ -9,9 +9,9 @@
   <% end %>
   <% unless total == 0 %>
     <div class="days__box">
-      <div class="days__head">合計</div>
+      <div class="days__head">固定費合計</div>
       <div class="days__value">
-        <%= total %> 円
+        <%= total.to_s(:delimited) %> 円
       </div>
     </div>
   <% end %>

@@ -1,6 +1,6 @@
 <div class="items-index">
   <h2 class="items-index__title">支出項目</h2>
-  <%= render 'variablecost_values/link_new' %>
+  <%= render 'kakeibo-p/links' %>
   <div class="items-index__register">
     <div class="items-index__register-title">項目設定</div>
     <%= form_with model: @variablecost, url:variablecosts_path, local: true do |f| %>
@@ -31,10 +31,10 @@
         </div>
         <div class="items-index__box-ex">
           <div class="move-page">
-            <%= link_to '編集する', edit_variablecost_path(item) %>
+            <%= link_to '編集する', edit_variablecost_path(item), class:"move-page__edit" %>
           </div>
           <div class="move-page">
-            <%= link_to '削除する', variablecost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }%>
+            <%= link_to '削除する', variablecost_path(item), method: :delete, data: { confirm: '本当に消しますか？' }, class:"move-page__delete" %>
           </div>
         </div>
       </div>

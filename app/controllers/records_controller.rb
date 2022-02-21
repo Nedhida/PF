@@ -56,6 +56,9 @@ class RecordsController < ApplicationController
     @var_value_month.each do |variablecost_value|
       @variablecost_value_total +=  variablecost_value.value
     end
+
+    @month_total = @income_value_total - (@fixedcost_value_total + @variablecost_value_total)
+
   end
 
 
