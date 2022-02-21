@@ -25,7 +25,21 @@
               <%= link_to '家計簿マイページ', month_records_path(current_user) %>
             </li>
             <li>
-              <%= link_to '今月の統計', graph_month_records_path(current_user) %>
+              <%= form_with url: {controller: 'records', action: 'graph_month'}, method: :get, local: true do |f| %>
+                <div class="records-head">
+                  <div class="records-head__select">
+                    <div class="records-head__head">月の統計</div>
+                    <div class="records-head__box3">
+                      <div class="records-head__date">
+                        <%= f.month_field "start_time" %>
+                        <div class="move-page">
+                          <%= f.submit '選択', class:'move-page__select' %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             </li>
             <li>
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

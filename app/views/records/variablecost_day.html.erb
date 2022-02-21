@@ -8,41 +8,7 @@
     <%= form_with url: {controller: 'records', action: 'variablecost_day'}, method: :get, local: true do |f| %>
       <%= render 'kakeibo-p/day_select', f: f %>
     <% end %>
-
-    <div class="days__content1">
-      <% if @start_time.present? %>
-      <div class="days__box">
-        <div class="days__head">日付</div>
-        <div class="days__start-time">
-          <%= @start_time %>
-        </div>
-      </div>
-      <% end %>
-      <% unless @variablecost_value_total == 0 %>
-        <div class="days__box">
-          <div class="days__head">合計</div>
-          <div class="days__value">
-            <%= @variablecost_value_total %> 円
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-    <% if @variablecost_values.present? %>
-      <% @variablecost_values.each do |item| %>
-        <div class="days__content2">
-
-          <%= render 'variablecost_values/show', item: item %>
-
-          <div class="move-page">
-            <%= link_to '詳細', variablecost_value_path(item), class: 'move-page__show' %>
-          </div>
-        </div>
-      <% end %>
-
-    <% else %>
-      <div class="item-nothing">登録がありません</div>
-    <% end %>
+    <%= render 'variablecost_values/records', start_time: @start_time, total: @variablecost_value_total, value: @var_value_month %>
   </div>
 
 </div>

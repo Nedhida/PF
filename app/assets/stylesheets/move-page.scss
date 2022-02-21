@@ -1,7 +1,7 @@
 /*#20b2aa 青 #b32027 赤　#b3ab20 緑 */
 
 .move-page div, .move-page a, .move-page input {
-  &:not(.move-page__shrink) {display: flex;}
+  &:not(.move-page__shrink, .move-page__select) {display: flex;}
   justify-content: center;
   align-items: center;
   padding: 0 5px;

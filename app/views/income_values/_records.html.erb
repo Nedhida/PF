@@ -1,0 +1,34 @@
+<div class="days__content1">
+  <% if @start_time.present? %>
+    <div class="days__box">
+      <div class="days__head">日付</div>
+      <div class="days__start-time">
+        <%= start_time %>
+      </div>
+    </div>
+  <% end %>
+  <% unless total == 0 %>
+    <div class="days__box">
+      <div class="days__head">合計</div>
+      <div class="days__value">
+        <%= total %> 円
+      </div>
+    </div>
+  <% end %>
+</div>
+    
+<% if value.present? %>
+  <% value.each do |item| %>
+    <div class="days__content2">
+
+      <%= render 'income_values/show', item: item %>
+          
+      <div class="move-page">
+        <%= link_to '詳細', income_value_path(item), class: 'move-page__show' %>
+      </div>
+    </div>
+  <% end %>
+      
+<% else %>
+  <div class="item-nothing">登録がありません</div>
+<% end %>

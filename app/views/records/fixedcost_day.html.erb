@@ -9,40 +9,7 @@
       <%= render 'kakeibo-p/day_select', f: f %>
     <% end %>
 
-    <div class="days__content1">
-      <% if @start_time.present? %>
-      <div class="days__box">
-        <div class="days__head">日付</div>
-        <div class="days__start-time">
-          <%= @start_time %>
-        </div>
-      </div>
-      <% end %>
-      <% unless @fixedcost_value_total == 0 %>
-        <div class="days__box">
-          <div class="days__head">合計</div>
-          <div class="days__value">
-            <%= @fixedcost_value_total %> 円
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-    <% if @fixedcost_values.present? %>
-      <% @fixedcost_values.each do |item| %>
-        <div class="days__content2">
-
-          <%= render 'fixedcost_values/show', item: item %>
-
-          <div class="move-page">
-            <%= link_to '詳細', fixedcost_value_path(item), class: 'move-page__show' %>
-          </div>
-        </div>
-      <% end %>
-
-    <% else %>
-      <div class="item-nothing">登録がありません</div>
-    <% end %>
+    <%= render 'fixedcost_values/records', start_time: @start_time, total: @fixedcost_value_total, value: @fixedcost_values %>
   </div>
 
 </div>

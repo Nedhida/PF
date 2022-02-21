@@ -1,5 +1,8 @@
 <div class="graph">
   <h2 class="graph__title"><%= @start_time %>の統計</h2>
+
+<%= render 'kakeibo-p/links' %>
+
 <%= form_with url: {controller: 'records', action: 'graph_month'}, method: :get, local: true do |f| %>
   <div class="records-day">
     <div class="records-day__select">
@@ -61,13 +64,35 @@
 	</div>
 	<div class="graph__panel-area">
 		<div id="panel1" class="graph__tab-panel">
-			<div class="graph__show">詳細１</div>
+			<div class="graph__show">
+			  <div class="graph__show">
+        <div class="days">
+          <h2 class="days__title">月の収入一覧</h2>
+          <%= render 'income_values/records', start_time: @start_time, total: @income_value_total, value: @in_value_month %>
+        </div>
+
+			</div>
+			</div>
 		</div>
 		<div id="panel2" class="graph__tab-panel">
-			<div class="graph__show">詳細２</div>
+			<div class="graph__show">
+        <div class="days">
+          <h2 class="days__title">月の固定費一覧</h2>
+          <%= render 'fixedcost_values/records', start_time: @start_time, total: @fixedcost_value_total, value: @fix_value_month %>
+        </div>
+
+			</div>
 		</div>
 		<div id="panel3" class="graph__tab-panel">
-			<div class="graph__show">詳細３</div>
+			<div class="graph__show">
+			  <div class="graph__show">
+        <div class="days">
+          <h2 class="days__title">月の支出一覧</h2>
+          <%= render 'variablecost_values/records', start_time: @start_time, total: @variablecost_value_total, value: @var_value_month %>
+        </div>
+
+			</div>
+			</div>
 		</div>
 	</div>
 </div>
