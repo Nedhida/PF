@@ -1,21 +1,65 @@
 .simple-calendar {
-  &.tbody {width: 100%;}
-
-  &.table th, .table td {
-    padding: 0;
-  }
+    &.tbody {width: 100%;}
 }
 
 .records-month {
 
-  &__total {
-    font-size: 10px;
-    display: block;
-  width: 5ch;
-  font-family: "Courier New", Consolas, monospace;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  &__box {
+    width: 100%;
+    height: 100%;
+    position: relative;
   }
+
+  &__total {
+    display: block;
+    font-family: "Courier New", Consolas, monospace;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  
 }
 
+
+@media screen and (max-width: 479px) {
+  .simple-calendar {
+
+    &.table th, .table td {
+      padding: 0;
+    }
+  }
+
+  .records-month {
+
+    &__total {
+      font-size: 10px;
+      width: 7ch;
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 979px) {
+  .records-month {
+
+    &__total {
+      width: 7ch;
+    }
+  }
+
+}
+
+
+@media screen and (min-width: 980px) {
+  .records-month {
+
+    &__total {
+      width: 10ch;
+    }
+  }
+
+}
