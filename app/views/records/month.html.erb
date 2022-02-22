@@ -4,8 +4,8 @@
   <%= render 'kakeibo-p/links' %>
 
 <%= month_calendar events: @all_values do |date, all_value| %>
-  <%=date.day %>
   <div class="records-month__box">
+  <%=date.day %>
 <!-- 支出、固定費、収入の合計 -->
     <% sum_all_values = 0 %>
     <% all_value.each do |item| %>
@@ -18,12 +18,10 @@
       <% end %>
     <% end %>
     <% unless sum_all_values == 0 %>
-      <div class="records-month__head">合計</div>
-      <div class="records-month__total">
-        <div class="move-page">
-          <%= link_to sum_all_values, {controller: "records", action: "day", start_time: date} %>
-        </div>
-      </div>
+      <div class="records-month__head">計</div>
+
+          <%= link_to sum_all_values, {controller: "records", action: "day", start_time: date}, class:"records-month__total" %>
+
     <% end %>
   </div>
 <% end %>

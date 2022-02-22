@@ -1,0 +1,21 @@
+.simple-calendar {
+  &.tbody {width: 100%;}
+
+  &.table th, .table td {
+    padding: 0;
+  }
+}
+
+.records-month {
+
+  &__total {
+    font-size: 10px;
+    display: block;
+  width: 5ch;
+  font-family: "Courier New", Consolas, monospace;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  }
+}
+

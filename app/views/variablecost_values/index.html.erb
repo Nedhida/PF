@@ -11,10 +11,10 @@
         <% sum_values += item.value %>
       <% end %>
       <% unless sum_values == 0 %>
-        <div class="records-month__head">合計</div>
+        <div class="records-month__head">計</div>
         <div class="records-month__total">
           <div class="move-page">
-            <%=link_to sum_values, {controller: "records", action: "variablecost_day", start_time: date} %>
+            <%=link_to sum_values, {controller: "records", action: "variablecost_day", start_time: date}, class:"move-page__total" %>
           </div>
         </div>
       <% end %>
