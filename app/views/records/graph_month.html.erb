@@ -27,8 +27,8 @@
   </div>
 </div>
 <% if @income_value_total == 0 and @fixedcost_value_total == 0 and @variablecost_value_total == 0 %>
-  <div class="nothing-item"><%= @start_time %>の記録はありません。</div>
-<% end %>
+  <div class="item-nothing">記録はありません。</div>
+<% else %>
   <canvas id="myChart" class="graph__content"></canvas>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
@@ -58,6 +58,7 @@
        }
   });
   </script>
+<% end %>
   </div>
 
   <div class="graph__tab-wrap">

@@ -3,8 +3,8 @@
 
   <%= render 'info', user: current_user %>
 
-  <div class="follwers">
-  <h2 class="follwers__title">フォロワー一覧</h2>
+  <div class="user-followers">
+  <h2 class="user-followers__title">フォロワー一覧</h2>
   <% if @user.exists? %>
     <%= render "users/index", users: @user %>
   <% else %>
