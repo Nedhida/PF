@@ -3,26 +3,26 @@
 
   <%= render 'kakeibo-p/links' %>
 
-<%= month_calendar events: @all_values do |date, all_value| %>
-  <div class="records-month__box">
-  <%=date.day %>
-
-<!-- 支出、固定費、収入の合計 -->
-    <% sum_all_values = 0 %>
-    <% all_value.each do |item| %>
-<!--　 支出、固定費を引き算   -->
-      <% if item.code == 2 || item.code == 3 %>
-        <% sum_all_values -= item.value %>
-<!--       収入を足し算       -->
-      <% else %>
-        <% sum_all_values += item.value %>
+  <%= month_calendar events: @all_values do |date, all_value| %>
+    <div class="records-month__box">
+      <%=date.day %>
+  
+  <!-- 支出、固定費、収入の合計 -->
+      <% sum_all_values = 0 %>
+      <% all_value.each do |item| %>
+  <!--　 支出、固定費を引き算   -->
+        <% if item.code == 2 || item.code == 3 %>
+          <% sum_all_values -= item.value %>
+  <!--       収入を足し算       -->
+        <% else %>
+          <% sum_all_values += item.value %>
+        <% end %>
       <% end %>
-    <% end %>
-<!-- 合計額がある場合表示 -->
-    <% unless sum_all_values == 0 %>
-      <%= link_to sum_all_values, {controller: "records", action: "day", start_time: date}, class:"records-month__total" %>
-    <% end %>
-  </div>
-<% end %>
+  <!-- 　合計額がある場合表示 　-->
+      <% unless sum_all_values == 0 %>
+        <%= link_to sum_all_values, {controller: "records", action: "day", start_time: date}, class:"records-month__total" %>
+      <% end %>
+    </div>
+  <% end %>
 
 </div>

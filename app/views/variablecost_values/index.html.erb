@@ -4,18 +4,14 @@
   <%= render 'kakeibo-p/links' %>
 
   <%= month_calendar events: @variablecost_values do |date, variablecost_value| %>
-    <%=date.day %>
     <div class="records-month__box">
+      <%=date.day %>
       <% sum_values = 0 %>
       <% variablecost_value.each do |item| %>
         <% sum_values += item.value %>
       <% end %>
       <% unless sum_values == 0 %>
-        <div class="records-month__total">
-          <div class="move-page">
-            <%=link_to sum_values, {controller: "records", action: "variablecost_day", start_time: date}, class:"move-page__total" %>
-          </div>
-        </div>
+        <%=link_to sum_values, {controller: "records", action: "variablecost_day", start_time: date}, class:"records-month__total" %>
       <% end %>
     </div>
 
