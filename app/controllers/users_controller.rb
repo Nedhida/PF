@@ -4,12 +4,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @variablecost_values = @user.variablecost_values.page(params[:page]).reverse_order
+    @variablecost_values = @user.variablecost_values.order(created_at: :desc).page(params[:page])
   end
 
   def index
     @user = current_user
-    @users = User.page(params[:page]).reverse_order
+    @users = User.order(created_at: :desc).page(params[:page])
   end
 
   def edit
@@ -26,14 +26,14 @@ class UsersController < ApplicationController
    #フォロー一覧
   def following
     @users = User.find(params[:id])
-    @user = @users.following
+    @user = @users.following.order(created_at: :desc).page(params[:page])
     render 'relationships/following'
   end
 
   #フォロワー一覧
   def followers
     @users = User.find(params[:id])
-    @user = @users.followers
+    @user = @users.followers.order(created_at: :desc).page(params[:page])
     render 'relationships/followers'
   end
 

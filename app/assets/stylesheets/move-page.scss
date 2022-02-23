@@ -45,3 +45,8 @@
   flex-wrap: wrap;
 }
 
+@media screen and (max-width: 350px) {
+  .move-page{
+    font-size: 10px;
+  }
+}

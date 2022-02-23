@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @variablecost_values = VariablecostValue.page(params[:page]).reverse_order
+    @variablecost_values = VariablecostValue.order(created_at: :desc).page(params[:page])
     @user = current_user
   end
 

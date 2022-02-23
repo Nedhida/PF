@@ -11,7 +11,7 @@
         <% sum_values += item.value %>
       <% end %>
       <% unless sum_values == 0 %>
-            <%=link_to sum_values, {controller: "records", action: "income_day", start_time: date}, class:"records-month__total" %>
+            <%=link_to sum_values.to_s(:delimited), {controller: "records", action: "income_day", start_time: date}, class:"records-month__total" %>
       <% end %>
     </div>
   <% end %>
