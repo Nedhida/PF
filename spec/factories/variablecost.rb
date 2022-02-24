@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :variablecost do
-    user
+    association :user
     name        {'name'}
     description {'description'}
   end

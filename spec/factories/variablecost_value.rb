@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :variablecost_value do
-    user
-    variablecost
+    association :user
+    association :variablecost
     content     { Faker::Lorem.words }
     start_time  { Faker::Date.backward }
     value       { Faker::Number.number }
