@@ -1,8 +1,7 @@
 class HomesController < ApplicationController
-
+before_action :authenticate_user!, except: %i[top about]
 
   def top
-    #新着機能実装予定
   end
 
   def about

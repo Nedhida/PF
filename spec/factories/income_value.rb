@@ -1,12 +1,11 @@
 FactoryBot.define do
-    factory :variablecost_value do
+    factory :income_value do
     association :user
-    association :variablecost
+    association :income
     content     { Faker::Lorem.words }
     start_time  { Faker::Date.backward }
     value       { Faker::Number.number }
     description { Faker::Lorem.words }
-    privacy     { Faker::Lorem.characters(number: 1) }
     code        { Faker::Number.number(1)}
   end
 end

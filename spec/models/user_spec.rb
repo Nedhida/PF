@@ -5,8 +5,8 @@ RSpec.describe User, type: :model do
   describe 'バリデーションのテスト' do
     subject { user.valid? }             #subject テストコードをDRYにexpect(X).to eqのXを定義。is_expected.to eq Yに変更できる。
 
-    let!(:other_user) { create(:user) } #let インスタンス変数
-    let(:user) { build(:user) }         #DBアクセスが必要なときcreate。必要ないときはbuild
+    let!(:other_user) { FactoryBot.create(:user) } #let インスタンス変数
+    let(:user) { FactoryBot.build(:user) }         #DBアクセスが必要なときcreate。必要ないときはbuild
 
     context 'nameカラム' do             #context 条件を分けるときに使うことが多いdescribeとほぼ同じ
       it '空欄でないこと' do            #it テストをexampleという単位にまとめる
