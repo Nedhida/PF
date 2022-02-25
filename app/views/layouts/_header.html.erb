@@ -22,7 +22,7 @@
               <%= link_to 'ユーザー一覧', users_path %>
             </li>
             <li class="header__li">
-              <%= link_to '家計簿マイページ', month_records_path(current_user) %>
+              <%= link_to '家計簿マイページ', month_records_path %>
             </li>
             <li class="header__li">
               <%=link_to '今月の統計', graph_month_records_path(start_time: Time.now.strftime("%Y-%m")) %>

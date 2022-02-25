@@ -42,8 +42,7 @@ class VariablecostValuesController < ApplicationController
 
   def destroy
 	  @variablecost_value.destroy
-	  #↓遷移先変更予定
-	  redirect_to variablecost_values_path, notice: "データを削除しました"
+	  redirect_to month_records_path, notice: "データを削除しました"
   end
 
   private
@@ -55,7 +54,7 @@ class VariablecostValuesController < ApplicationController
   def ensure_correct_user
     @variablecost_value = VariablecostValue.find(params[:id])
     unless @variablecost_value.user_id == current_user.id
-      redirect_to variablecosts_path(current_user)
+      redirect_to month_records_path
     end
   end
 

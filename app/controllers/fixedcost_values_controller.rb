@@ -42,8 +42,7 @@ class FixedcostValuesController < ApplicationController
 
   def destroy
 	  @fixedcost_value.destroy
-	  #↓遷移先変更予定
-	  redirect_to fixedcost_values_path, notice: "データを削除しました"
+	  redirect_to month_records_path, notice: "データを削除しました"
   end
 
   private
@@ -55,7 +54,7 @@ class FixedcostValuesController < ApplicationController
   def ensure_correct_user
     @fixedcost_value = FixedcostValue.find(params[:id])
     unless @fixedcost_value.user_id == current_user.id
-      redirect_to fixedcosts_path(current_user)
+      redirect_to month_records_path
     end
   end
 

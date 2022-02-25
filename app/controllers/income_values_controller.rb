@@ -42,8 +42,7 @@ class IncomeValuesController < ApplicationController
 
   def destroy
 	  @income_value.destroy
-	  #↓遷移先変更予定
-	  redirect_to income_values_path, notice: "データを削除しました"
+	  redirect_to month_records_path, notice: "データを削除しました"
   end
 
   private
@@ -55,7 +54,7 @@ class IncomeValuesController < ApplicationController
   def ensure_correct_user
     @income_value = IncomeValue.find(params[:id])
     unless @income_value.user_id == current_user.id
-      redirect_to incomes_path(current_user)
+      redirect_to month_records_path
     end
   end
 

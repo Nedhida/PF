@@ -45,7 +45,7 @@ class IncomesController < ApplicationController
   def ensure_correct_user
     @income = Income.find(params[:id])
     unless @income.user_id == current_user.id
-      redirect_to incomes_path(current_user)
+      redirect_to month_records_path
     end
   end
 

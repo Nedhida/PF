@@ -46,7 +46,7 @@ class VariablecostsController < ApplicationController
   def ensure_correct_user
     @variablecost = Variablecost.find(params[:id])
     unless @variablecost.user_id == current_user.id
-      redirect_to variablecosts_path(current_user)
+      redirect_to month_records_path
     end
   end
 

@@ -14,16 +14,5 @@ class RelationshipsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  #フォロー一覧
-  def following
-    @users = User.find(params[:user_id])
-    @user = @users.following
-  end
-
-  #フォロワー一覧
-  def followers
-    @user = User.find(params[:user_id])
-    @user = @users.followers
-  end
 
 end

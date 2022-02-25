@@ -1,12 +1,12 @@
 
 <div class="yield-layout">
 
-  <%= render 'info', user: current_user %>
+  <%= render 'info', user: @user %>
 
   <div class="user-following">
     <h2 class="user-following__title">フォロー一覧</h2>
-    <% if @user.exists? %>
-      <%= render "users/index", users: @user %>
+    <% if @users.exists? %>
+      <%= render "users/index", users: @users %>
     <% else %>
       <div class="item-nothing">ユーザーはいません</div>
     <% end %>

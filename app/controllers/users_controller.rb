@@ -25,15 +25,15 @@ class UsersController < ApplicationController
 
    #フォロー一覧
   def following
-    @users = User.find(params[:id])
-    @user = @users.following.order(created_at: :desc).page(params[:page])
+    @user = User.find(params[:id])
+    @users = @user.following.order(created_at: :desc).page(params[:page])
     render 'relationships/following'
   end
 
   #フォロワー一覧
   def followers
-    @users = User.find(params[:id])
-    @user = @users.followers.order(created_at: :desc).page(params[:page])
+    @user = User.find(params[:id])
+    @users = @user.followers.order(created_at: :desc).page(params[:page])
     render 'relationships/followers'
   end
 

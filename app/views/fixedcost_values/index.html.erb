@@ -2,7 +2,7 @@
   <h2 class="records-month__title">固定費カレンダー</h2>
 
   <%= render 'kakeibo-p/links' %>
-
+<!-- 日ごとに合計金額を表示(０の時は非表示)　-->
   <%= month_calendar events: @fixedcost_values do |date, fixedcost_value| %>
     <div class="records-month__box">
       <%=date.day %>

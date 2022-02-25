@@ -46,7 +46,7 @@ class FixedcostsController < ApplicationController
   def ensure_correct_user
     @fixedcost = Fixedcost.find(params[:id])
     unless @fixedcost.user_id == current_user.id
-      redirect_to fixedcosts_path(current_user)
+      redirect_to month_records_path
     end
   end
 
