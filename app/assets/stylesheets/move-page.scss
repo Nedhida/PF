@@ -3,6 +3,7 @@
 .move-page {
   display: flex;
   justify-content: space-around;
+  &:not(.move-page__name) {margin-top: 10px;}
 
   &__delete {
     background-color: #b32027;
@@ -11,6 +12,7 @@
   &__edit {
     background-color: #b3ab20;
   }
+
 
 }
 
@@ -23,7 +25,6 @@
   &:not(.move-page__delete, .move-page__edit) {background-color: #20b2aa;}
   transition: 0.3s;
   border-radius: 20px;
-  &:not(.move-page__name) {margin-top: 10px;}
 
   &__show {
     bottom: 0;
