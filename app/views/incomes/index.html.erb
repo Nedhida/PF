@@ -33,9 +33,6 @@
           <div class="move-page">
             <%= link_to '編集する', edit_income_path(item), class:"move-page__edit" %>
           </div>
-          <div class="move-page">
-            <%= link_to '削除する', income_path(item), method: :delete, data: { confirm: '本当に消しますか？' }, class:"move-page__delete" %>
-          </div>
         </div>
       </div>
       <% end %>
