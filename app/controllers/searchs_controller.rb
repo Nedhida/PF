@@ -10,7 +10,8 @@ class SearchsController < ApplicationController
     #選択ワードを@contentに代入
     @content = params["content"]
     #上記３つの＠〜を代入したsearch_forを@recordsに代入
-    @records = search_for(@content, @model, @method)
+    @records = search_for(@content, @model, @method).page(params[:page])
+
   end
 
   private
