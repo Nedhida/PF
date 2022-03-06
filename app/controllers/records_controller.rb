@@ -37,24 +37,18 @@ class RecordsController < ApplicationController
 
     #月の収入額合計
     @in_value_month = @user.income_values.where(start_time: Time.local(*@start_time.split("-")).all_month)#.group_by_month(:start_time)
-    @income_value_total = 0
-    @in_value_month.each do |income_value|
-      @income_value_total += income_value.value
-    end
+    #DBで月の合計額を計算
+    @income_value_total = @in_value_month.sum(:value)
 
     #月の固定費額合計
     @fix_value_month = @user.fixedcost_values.where(start_time: Time.local(*@start_time.split("-")).all_month)#.group_by_month(:start_time)
-    @fixedcost_value_total = 0
-    @fix_value_month.each do |fixedcost_value|
-      @fixedcost_value_total += fixedcost_value.value
-    end
+    #DBで月の合計額を計算
+    @fixedcost_value_total = @fix_value_month.sum(:value)
 
     #月の支出額合計
     @var_value_month = @user.variablecost_values.where(start_time: Time.local(*@start_time.split("-")).all_month)#.group_by_month(:start_time)
-    @variablecost_value_total = 0
-    @var_value_month.each do |variablecost_value|
-      @variablecost_value_total +=  variablecost_value.value
-    end
+    #DBで月の合計額を計算
+    @variablecost_value_total = @var_value_month.sum(:value)
 
     @month_total = @income_value_total - (@fixedcost_value_total + @variablecost_value_total)
 
@@ -75,28 +69,22 @@ class RecordsController < ApplicationController
   def income
     @incomes = @user.incomes.order(created_at: :asc)
     @income_values = @user.income_values.where(start_time: @start_time)
-    @income_value_total = 0
-    @income_values.each do |income_value|
-      @income_value_total += income_value.value
-    end
+    #DBで合計額を計算
+    @income_value_total = @income_values.sum(:value)
   end
 
   def fixedcost
     @fixedcosts = @user.fixedcosts.order(created_at: :asc)
     @fixedcost_values = @user.fixedcost_values.where(start_time: @start_time)
-    @fixedcost_value_total = 0
-    @fixedcost_values.each do |fixedcost_value|
-      @fixedcost_value_total += fixedcost_value.value
-    end
+    #DBで合計額を計算
+    @fixedcost_value_total = @fixedcost_values.sum(:value)
   end
 
   def variablecost
     @variablecosts = @user.variablecosts.order(created_at: :asc)
     @variablecost_values = @user.variablecost_values.where(start_time: @start_time)
-    @variablecost_value_total = 0
-    @variablecost_values.each do |variablecost_value|
-      @variablecost_value_total +=  variablecost_value.value
-    end
+    #DBで合計額を計算
+    @variablecost_value_total = @variablecost_values.sum(:value)
   end
 
 end
