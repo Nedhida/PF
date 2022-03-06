@@ -55,22 +55,22 @@ class SearchsController < ApplicationController
         VariablecostValue.all
       end
 
-    # elsif model == "variablecost"
-    #   #完全一致
-    #   if method == "perfect"
-    #     VariablecostValue.where("variablecost_id LIKE?", "#{content}")
-    #   #部分一致
-    #   elsif method == "partial"
-    #     VariablecostValue.where("variablecost_id LIKE?", "%#{content}%")
-    #   #前方一致
-    #   elsif method == "forward"
-    #     VariablecostValue.where("variablecost_id LIKE?", "#{content}%")
-    #   #後方一致
-    #   elsif method == "backward"
-    #     VariablecostValue.where("variablecost_id LIKE?", "%#{content}")
-    #   else
-    #   VariablecostValue.all
-    #   end
+    elsif model == "variablecost"
+      #完全一致
+      if method == "perfect"
+        VariablecostValue.where("variablecost_id LIKE?", "#{content}")
+      #部分一致
+      elsif method == "partial"
+        VariablecostValue.where("variablecost_id LIKE?", "%#{content}%")
+      #前方一致
+      elsif method == "forward"
+        VariablecostValue.where("variablecost_id LIKE?", "#{content}%")
+      #後方一致
+      elsif method == "backward"
+        VariablecostValue.where("variablecost_id LIKE?", "%#{content}")
+      else
+      VariablecostValue.all
+      end
     end
   end
 

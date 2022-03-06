@@ -8,9 +8,9 @@
     <% elsif @model == 'variablecost_value' %>
       <h2 class="search__title">投稿" <%= @content %> "の検索結果</h2>
       <%= render 'posts/index', variablecost_values: @records %>
-    <%# else @model == 'variablecost' %>
-      <!--<h2 class="search__title">項目" <%#= @content %> "の検索結果</h2>-->
-      <%#= render 'posts/index', variablecost_values: @records %>
+    <% else @model == 'variablecost' %>
+      <h2 class="search__title">項目" <%= @content %> "の検索結果</h2>
+      <%= render 'posts/index', variablecost_values: @records %>
     <% end %>
   </div>
 
